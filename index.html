@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PathfinderAI — AI som löser problem på riktigt</title>
-<meta name="description" content="PathfinderAI bygger AI som löser problem, frigör personal och sparar pengar. På riktigt. För företag och kommuner.">
+<title>PathfinderAI — AI-stöd för aktivitetskravet i kommuner</title>
+<meta name="description" content="CvMatchen från PathfinderAI hjälper kommuner möta aktivitetskravet från 1 juli 2026. AI som dokumenterar, mäter och frigör handläggartid — på riktigt.">
 
 <!-- Favicon — kompass-logon i guld -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a437'/%3E%3Cstop offset='50%25' stop-color='%23f5c842'/%3E%3Cstop offset='100%25' stop-color='%23fde68a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='url(%23g)' stroke-width='1.5'/%3E%3Cline x1='16' y1='3' x2='16' y2='5.5' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='26.5' x2='16' y2='29' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='3' y1='16' x2='5.5' y2='16' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='26.5' y1='16' x2='29' y2='16' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M16 7 L19 16 L16 14 L13 16 Z' fill='url(%23g)'/%3E%3Cpath d='M16 25 L13 16 L16 18 L19 16 Z' fill='url(%23g)' opacity='0.4'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%230a0a0b' stroke='url(%23g)' stroke-width='1'/%3E%3C/svg%3E">
@@ -15,23 +15,23 @@
 
 <style>
   :root {
-    --bg: #0a0a0b;
-    --bg-elevated: #111114;
-    --surface: rgba(255, 255, 255, 0.03);
-    --surface-hover: rgba(255, 255, 255, 0.06);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-strong: rgba(255, 255, 255, 0.16);
-    --text: #f4f4f5;
-    --text-muted: #a8a29e;
-    --text-dim: #78716c;
+    --bg: #fafaf7;
+    --bg-elevated: #ffffff;
+    --surface: rgba(0, 0, 0, 0.025);
+    --surface-hover: rgba(0, 0, 0, 0.05);
+    --border: rgba(0, 0, 0, 0.08);
+    --border-strong: rgba(0, 0, 0, 0.16);
+    --text: #14110d;
+    --text-muted: #5a544d;
+    --text-dim: #8a847c;
 
-    --gold: #d4a437;
-    --gold-bright: #f5c842;
-    --gold-warm: #e8b94a;
-    --gold-deep: #a07d20;
+    --gold: #b8902f;
+    --gold-bright: #b8902f;
+    --gold-warm: #a07d20;
+    --gold-deep: #7a5f18;
 
-    --gradient-accent: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 50%, #fde68a 100%);
-    --gradient-text: linear-gradient(135deg, var(--gold-warm) 0%, var(--gold-bright) 60%, #fef3c7 100%);
+    --gradient-accent: linear-gradient(135deg, var(--gold) 0%, #c9a149 100%);
+    --gradient-text: linear-gradient(135deg, var(--gold-deep) 0%, var(--gold) 100%);
 
     --font-display: 'Space Grotesk', system-ui, sans-serif;
     --font-serif: 'Instrument Serif', Georgia, serif;
@@ -56,16 +56,11 @@
     min-height: 100vh;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-    opacity: 0.04;
-    pointer-events: none;
-    z-index: 1;
-    mix-blend-mode: overlay;
-  }
+  body::before { display: none; }
+  /* Noise overlay borttagen — fungerar inte mot ljus bakgrund */
+
+  .ambient { display: none !important; }
+  .bg-marquee { display: none !important; }
 
   .ambient {
     position: fixed;
@@ -182,7 +177,7 @@
     padding: 22px 0;
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    background: rgba(10, 10, 11, 0.65);
+    background: rgba(250, 250, 247, 0.75);
     border-bottom: 1px solid transparent;
     transition: border-color 0.3s ease, padding 0.3s ease;
   }
@@ -244,7 +239,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    filter: drop-shadow(0 0 12px rgba(212, 164, 55, 0.45));
+    filter: none;
   }
 
   .logo-mark svg {
@@ -255,7 +250,7 @@
 
   .logo-mark .compass-needle {
     transform-origin: 50% 50%;
-    animation: compass-spin 8s var(--ease-in-out) infinite;
+    animation: none;
   }
 
   @keyframes compass-spin {
@@ -308,18 +303,18 @@
 
   .nav-cta {
     padding: 8px 16px;
-    background: var(--gradient-accent);
-    color: #1a1206 !important;
+    background: var(--gold);
+    color: #ffffff !important;
     font-weight: 600;
     border-radius: 8px;
     font-size: 13px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, background 0.2s ease;
   }
 
   .nav-cta:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(212, 164, 55, 0.4);
-    color: #1a1206 !important;
+    background: var(--gold-deep);
+    color: #ffffff !important;
   }
 
   /* Tagline strip — runs full-width below nav */
@@ -668,15 +663,15 @@
   }
 
   .btn-primary {
-    background: var(--gradient-accent);
-    color: #1a1206;
+    background: var(--gold);
+    color: #ffffff;
     font-weight: 600;
-    box-shadow: 0 4px 28px -4px rgba(212, 164, 55, 0.55);
+    box-shadow: none;
   }
 
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 36px -4px rgba(245, 200, 66, 0.65);
+    transform: translateY(-1px);
+    background: var(--gold-deep);
   }
 
   .btn-secondary {
@@ -2648,6 +2643,176 @@
     .cvm-feature-cards { grid-template-columns: 1fr 1fr; }
   }
 
+  /* ===== LJUST TEMA — DÄMPNING ===== */
+  /* Globala overrides för att ta bort glow, gold-text-shadows och tunga skuggor
+     som hör hemma i det gamla mörka temat. Tillagt sist så de vinner kaskaden. */
+
+  /* Dot-indikatorer: gör grå istället för gula glow */
+  .badge-dot,
+  .logo-sub::before,
+  .proof-tag::before,
+  .cvm-flag-tag::before,
+  .cvm-law-banner /* dummy */ {
+    box-shadow: none !important;
+  }
+  .badge-dot,
+  .logo-sub::before,
+  .proof-tag::before,
+  .cvm-flag-tag::before,
+  .segment-tag::before {
+    background: var(--text-dim) !important;
+    box-shadow: none !important;
+  }
+
+  /* pulse-dot: behåll men diskret */
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50%      { opacity: 0.4; transform: scale(0.9); }
+  }
+
+  /* Bakgrund — ta bort/dämpa alla gold-tinted gradients/radials som blir konstiga mot off-white */
+  .proof-block,
+  .local-presence::before,
+  .contact-form-wrapper,
+  .contact-form-wrapper::before,
+  .proof-block::before,
+  .cvm-flagship,
+  .cvm-flagship::before {
+    /* Sätts vidare per regel nedan */
+  }
+
+  .proof-block {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border) !important;
+  }
+  .proof-block::before { display: none; }
+
+  .cvm-flagship {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border-strong) !important;
+  }
+  .cvm-flagship::before { display: none; }
+
+  .cvm-fc { background: var(--bg-elevated) !important; }
+  .cvm-fc:hover { background: var(--surface-hover) !important; border-color: var(--border-strong) !important; }
+  .cvm-fc.feature-wide { background: var(--surface) !important; }
+
+  .cvm-fc-icon,
+  .bonus-row-icon,
+  .contact-card-icon {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+  }
+
+  .cvm-law-banner {
+    background: var(--surface) !important;
+  }
+
+  .bonus-row {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+  }
+
+  .portrait-frame {
+    background: var(--surface) !important;
+  }
+  .portrait-frame::before { display: none; }
+
+  .local-presence::before { display: none; }
+
+  .contact-form-wrapper {
+    background: var(--bg-elevated) !important;
+  }
+  .contact-form-wrapper::before { display: none; }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: var(--bg-elevated) !important;
+    color: var(--text) !important;
+  }
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    background: var(--bg-elevated) !important;
+    box-shadow: none !important;
+  }
+
+  .form-success {
+    background: var(--surface) !important;
+    border-color: var(--gold) !important;
+    color: var(--gold-deep) !important;
+  }
+
+  /* Cases: case-card 2:s inline-style övrride */
+  .case-card[style] {
+    background: var(--surface) !important;
+    border-color: var(--border) !important;
+  }
+  .case-card:hover { border-color: var(--border-strong) !important; background: var(--surface-hover) !important; }
+
+  /* Quote-cards / FAQ / scenarios hover dämpat */
+  .quote-card:hover,
+  .scenario:hover,
+  .faq-item:hover,
+  .faq-item[open],
+  .contact-card:hover {
+    border-color: var(--border-strong) !important;
+  }
+
+  /* Proof bar fill */
+  .proof-bar-fill { box-shadow: none !important; }
+  .proof-bar-track { background: var(--surface) !important; }
+
+  /* Tagline-strip om den används */
+  .tagline-strip-inner { box-shadow: none !important; background: var(--surface) !important; }
+
+  /* Scroll cue mot ljus bg */
+  .scroll-cue a {
+    background: var(--bg-elevated) !important;
+    border-color: var(--border) !important;
+    color: var(--gold) !important;
+  }
+  .scroll-cue a:hover { background: var(--surface) !important; }
+
+  /* Section bakgrunder som hade radial gradients */
+  .local-grid, .proof-grid { background: transparent; }
+
+  /* Företag kompakt block */
+  .foretag-compact {
+    border-top: 1px solid var(--border);
+    padding: 70px 0;
+  }
+  .foretag-compact-inner {
+    max-width: 720px;
+  }
+  .foretag-compact-h {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+    margin: 6px 0 10px;
+  }
+  .foretag-compact-h .accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--gold);
+    background: none;
+    -webkit-text-fill-color: var(--gold);
+  }
+  .foretag-compact-p {
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .foretag-compact-cta { padding: 10px 18px; font-size: 14px; }
+
+  /* Final: nuke alla återstående gold-glow box-shadows */
+  [class] { /* placeholder */ }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -2751,7 +2916,7 @@
     <ul class="nav-links">
       <li><a href="#hem">Hem</a></li>
       <li><a href="#kommuner">Kommuner</a></li>
-      <li><a href="#foretag">Företag</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#cases">Case</a></li>
       <li><a href="#pris">Pris</a></li>
       <li><a href="#faq">FAQ</a></li>
@@ -2765,15 +2930,15 @@
 <section class="hero" id="hem">
   <div class="container">
     <h1>
-      <span class="line line-1"><span class="brand-mark"><span class="pf">Pathfinder</span><span class="ai">AI</span></span> löser era problem<span class="punct">.</span></span>
-      <span class="line line-2">Frigör personal<span class="punct">.</span></span>
-      <span class="line line-3">Sparar pengar<span class="punct">.</span></span>
+      <span class="line line-1"><span class="brand-mark"><span class="pf">Pathfinder</span><span class="ai">AI</span></span> möter aktivitetskravet<span class="punct">.</span></span>
+      <span class="line line-2">Frigör handläggare<span class="punct">.</span></span>
+      <span class="line line-3">Dokumenterar automatiskt<span class="punct">.</span></span>
       <span class="line line-4">På riktigt<span class="punct">.</span></span>
     </h1>
 
     <p class="hero-sub">
-      <span class="lede">Vi börjar med ert problem. Slutar med en lösning. <em>Inget skitsnack.</em></span>
-      <span class="detail closing">Kontakta <strong class="brand-inline"><span class="pf">Pathfinder</span><span class="ai">AI</span></strong> för att se hur just er verksamhet kan dra nytta av AI.</span>
+      <span class="lede">Från 1 juli 2026 ska varje kommun erbjuda heltidssysselsättning för försörjningsstödstagare. <em>CvMatchen gör det möjligt.</em></span>
+      <span class="detail closing">AI som mäter aktivitet, samlar dokumentation och låter <strong class="brand-inline"><span class="pf">Pathfinder</span><span class="ai">AI</span></strong>s plattform göra det tunga — så era handläggare kan göra det viktiga.</span>
     </p>
 
     <div class="cta-row">
@@ -2900,81 +3065,6 @@
 
 <!-- Scroll cue -->
 <div class="scroll-cue">
-  <a href="#foretag" aria-label="Scrolla till nästa sektion">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-  </a>
-</div>
-
-<!-- FÖRETAG -->
-<section class="content segment" id="foretag">
-  <div class="container">
-    <div class="segment-header reveal">
-      <div>
-        <span class="segment-tag">Företag &amp; näringsliv</span>
-        <h2>Skräddarsydda <span class="accent">AI-uppdrag</span> för er verksamhet.</h2>
-      </div>
-      <div class="right-col">
-        Vid sidan av CvMatchen tar jag mig an utvalda kunduppdrag. Vi börjar med er flaskhals — inte med tekniken. Sen bygger vi en lösning som gör jobbet <strong>billigare, snabbare eller bättre</strong>. Helst alla tre.
-      </div>
-    </div>
-
-    <div class="usecases reveal">
-      <div class="usecase">
-        <div class="usecase-num">01 / Rekrytering &amp; HR</div>
-        <h4>AI som lyfter rekryteringsbördan</h4>
-        <p>Hundra CV:n in. Tio relevanta ut. Era rekryterare slipper sållningen.</p>
-        <div class="usecase-savings">Snabbare till anställning · Mindre admin</div>
-      </div>
-      <div class="usecase">
-        <div class="usecase-num">02 / IT &amp; digitala flöden</div>
-        <h4>Sänkta IT-kostnader</h4>
-        <p>Färre överlappande system. Mindre licensavgifter. Verktyg som faktiskt pratar med varandra.</p>
-        <div class="usecase-savings">Lägre IT-kostnad · Bättre data</div>
-      </div>
-      <div class="usecase">
-        <div class="usecase-num">03 / Bemanning &amp; schema</div>
-        <h4>Rätt person vid rätt tid</h4>
-        <p>AI-schema som väger ihop efterfrågan, tillgänglighet och regelverk. Aldrig mer över- eller underbemannat.</p>
-        <div class="usecase-savings">Frigör tid · Sänker lönekostnad</div>
-      </div>
-    </div>
-
-    <div class="reveal">
-      <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px;">Det här hör vi mest</h3>
-      <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 8px;">Känner ni igen er — ni är inte ensamma.</p>
-    </div>
-
-    <div class="carousel-wrapper reveal" id="foretagCarousel">
-      <div class="carousel-track-wrap" data-carousel-wrap>
-        <div class="carousel-track" data-carousel-track>
-          <div class="quote-card"><p class="q">Alla pratar om AI, men vi vet inte var vi ska börja.</p><p class="a"><strong>Vi börjar där pengarna finns.</strong> En kort analys visar var AI sparar mest.</p></div>
-          <div class="quote-card"><p class="q">Vi har testat pilotprojekt som aldrig kommit i drift.</p><p class="a"><strong>Vi bygger för måndag morgon.</strong> Lösningen ska tåla verkligheten.</p></div>
-          <div class="quote-card"><p class="q">Hur vet vi att det faktiskt sparar tid eller pengar?</p><p class="a"><strong>Vi mäter innan, under och efter.</strong> Kronor, timmar, ärenden.</p></div>
-          <div class="quote-card"><p class="q">Vi drunknar i ansökningar varje rekrytering.</p><p class="a"><strong>AI sållar och rangordnar — ni intervjuar bara de bästa.</strong></p></div>
-          <div class="quote-card"><p class="q">Vi har inte resurser för en intern AI-avdelning.</p><p class="a"><strong>Det behövs inte.</strong> Vi bygger och lämnar över.</p></div>
-          <div class="quote-card"><p class="q">Medarbetarna är oroliga att de ska bli ersatta.</p><p class="a"><strong>AI tar bort tråkjobbet, inte människorna.</strong></p></div>
-          <!-- Duplicate -->
-          <div class="quote-card" aria-hidden="true"><p class="q">Alla pratar om AI, men vi vet inte var vi ska börja.</p><p class="a"><strong>Vi börjar där pengarna finns.</strong> En kort analys visar var AI sparar mest.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi har testat pilotprojekt som aldrig kommit i drift.</p><p class="a"><strong>Vi bygger för måndag morgon.</strong> Lösningen ska tåla verkligheten.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Hur vet vi att det faktiskt sparar tid eller pengar?</p><p class="a"><strong>Vi mäter innan, under och efter.</strong> Kronor, timmar, ärenden.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi drunknar i ansökningar varje rekrytering.</p><p class="a"><strong>AI sållar och rangordnar — ni intervjuar bara de bästa.</strong></p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi har inte resurser för en intern AI-avdelning.</p><p class="a"><strong>Det behövs inte.</strong> Vi bygger och lämnar över.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Medarbetarna är oroliga att de ska bli ersatta.</p><p class="a"><strong>AI tar bort tråkjobbet, inte människorna.</strong></p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="segment-cta reveal">
-      <a href="#kontakt" class="btn btn-primary">
-        <span>Boka analys för företag</span>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Scroll cue -->
-<div class="scroll-cue">
   <a href="#process" aria-label="Scrolla till nästa sektion">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
   </a>
@@ -3030,34 +3120,15 @@
       <span class="section-label">Case</span>
       <h2>Två uppdrag. <span class="accent">Mätbar nytta.</span></h2>
       <p class="section-intro">
-        Ingen storytelling. Två faktiska uppdrag — vad problemet var, vad jag byggde, vad det resulterade i.
+        Ingen storytelling. Två faktiska uppdrag — med kommunleveransen som huvudexempel — vad problemet var, vad jag byggde, vad det resulterade i.
       </p>
     </div>
 
     <div class="cases-grid reveal">
 
-      <!-- Case 1: Tjänsteföretag - admin/todo -->
-      <div class="case-card">
-        <span class="case-tag">Case 01 · Tjänsteföretag, 5 anställda</span>
-        <h3 class="case-headline">Slut på att <span class="accent">drunkna i mail</span>.</h3>
-        <div class="case-body">
-          <div class="case-row">
-            <span class="case-row-label">Problem</span>
-            <span class="case-row-text">Ledningen och kundansvariga drunknade i inkommande mail och ad hoc-prioriteringar. Admintiden åt upp tid som borde gått till kunduppdrag.</span>
-          </div>
-          <div class="case-row">
-            <span class="case-row-label">Lösning</span>
-            <span class="case-row-text">AI-driven daglig todo-lista som läser inkorgen, sorterar i prioritetsordning och levereras färdig varje morgon. Synkad med kalender.</span>
-          </div>
-        </div>
-        <div class="case-result">
-          <span class="accent">−50% admintid.</span> Tiden flyttades direkt till värdeskapande kunduppdrag.
-        </div>
-      </div>
-
-      <!-- Case 2: CvMatchen som flaggskepp -->
+      <!-- Case 1: CvMatchen som flaggskepp (kommunleveransen) -->
       <div class="case-card" style="background: linear-gradient(135deg, rgba(212, 164, 55, 0.06) 0%, rgba(0, 0, 0, 0.3) 100%); border-color: rgba(245, 200, 66, 0.18);">
-        <span class="case-tag">Case 02 · CvMatchen — egen produkt</span>
+        <span class="case-tag">Case 01 · CvMatchen — egen produkt</span>
         <h3 class="case-headline">Från idé till <span class="accent">publik AI-tjänst</span> — driven solo.</h3>
         <div class="case-body">
           <div class="case-row">
@@ -3071,6 +3142,25 @@
         </div>
         <div class="case-result">
           <span class="accent">Live nu.</span> Anpassas per kommun. <a href="https://cvmatchen.com" target="_blank" rel="noopener" style="color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px;">cvmatchen.com</a>
+        </div>
+      </div>
+
+      <!-- Case 2: Tjänsteföretag - admin/todo -->
+      <div class="case-card">
+        <span class="case-tag">Case 02 · Tjänsteföretag, 5 anställda</span>
+        <h3 class="case-headline">Slut på att <span class="accent">drunkna i mail</span>.</h3>
+        <div class="case-body">
+          <div class="case-row">
+            <span class="case-row-label">Problem</span>
+            <span class="case-row-text">Ledningen och kundansvariga drunknade i inkommande mail och ad hoc-prioriteringar. Admintiden åt upp tid som borde gått till kunduppdrag.</span>
+          </div>
+          <div class="case-row">
+            <span class="case-row-label">Lösning</span>
+            <span class="case-row-text">AI-driven daglig todo-lista som läser inkorgen, sorterar i prioritetsordning och levereras färdig varje morgon. Synkad med kalender.</span>
+          </div>
+        </div>
+        <div class="case-result">
+          <span class="accent">−50% admintid.</span> Tiden flyttades direkt till värdeskapande kunduppdrag.
         </div>
       </div>
 
@@ -3114,6 +3204,23 @@
           <span class="scenario-a">Jag kommer.</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- FÖRETAG — kompakt block (vi gör även detta) -->
+<section class="foretag-compact" id="foretag">
+  <div class="container">
+    <div class="foretag-compact-inner reveal">
+      <span class="section-label">Vi gör även detta</span>
+      <h3 class="foretag-compact-h">Skräddarsydda <span class="accent">AI-uppdrag</span> för företag.</h3>
+      <p class="foretag-compact-p">
+        Vid sidan av CvMatchen tar jag mig an utvalda kunduppdrag — rekrytering, IT-flöden, bemanning. Vi börjar med er flaskhals, inte med tekniken, och bygger något som gör jobbet <strong>billigare, snabbare eller bättre</strong>.
+      </p>
+      <a href="#kontakt" class="btn btn-secondary foretag-compact-cta">
+        <span>Boka samtal</span>
+        <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -3190,6 +3297,19 @@
       </div>
 
       <div class="faq-list reveal">
+
+        <details class="faq-item">
+          <summary class="faq-q">
+            <span>Vad är CvMatchen?</span>
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </summary>
+          <div class="faq-a">
+            <p><strong>CvMatchen är vårt flaggskepp för aktivitetskravet</strong> som träder i kraft 1 juli 2026. En AI-plattform som hjälper kommuner möta lagkravet: heltidssysselsättning för försörjningsstödstagare, dokumenterad och spårbar.</p>
+            <p>Plattformen mäter aktivitet automatiskt (tid, sökta jobb, övningar), genererar underlag för handläggare och anpassas efter varje kommuns lokala arbetsmarknad. Den är live nu på <a href="https://cvmatchen.com" target="_blank" rel="noopener" style="color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px;">cvmatchen.com</a> — vi börjar med en pilot innan helhet.</p>
+          </div>
+        </details>
 
         <details class="faq-item">
           <summary class="faq-q">
@@ -3299,7 +3419,7 @@
       <!-- Höger: hook + text + principer -->
       <div class="about-body reveal">
         <p class="about-lede">
-          <span class="accent">PathfinderAI</span> är där erfarenhet från golvet möter tekniken — riktiga lösningar för bolag och kommuner som inte har råd med ett utvecklarteam.
+          <span class="accent">PathfinderAI</span> är där erfarenhet från golvet möter tekniken — riktiga lösningar för kommuner som inte har råd med ett utvecklarteam.
         </p>
 
         <div class="about-prose">
