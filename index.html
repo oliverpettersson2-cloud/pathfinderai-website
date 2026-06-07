@@ -71,7 +71,7 @@
           "name": "Var lagras data och hur ser GDPR-hanteringen ut?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "All data lagras i Supabase EU/Frankfurt. OTP-autentisering (ingen lösenordsdatabas), Row Level Security per användare, server-side API-nycklar, HTTPS/TLS. DPA tecknat med Anthropic och Resend. PuB-avtal redo att teckna med kommunen."
+            "text": "All data lagras i Supabase EU/Frankfurt. OTP-autentisering (ingen lösenordsdatabas), Row Level Security per användare, server-side API-nycklar, HTTPS/TLS. DPA tecknat med AWS och Resend. PuB-avtal redo att teckna med kommunen."
           }
         },
         {
@@ -3363,7 +3363,7 @@
       <div class="tech-strip">
         <div class="tech-pill"><strong>Frontend</strong>PWA, mobilfirst. OTP-login via Supabase Auth — ingen lösenordsdatabas.</div>
         <div class="tech-pill"><strong>Backend</strong>Vercel Serverless Functions (EU).</div>
-        <div class="tech-pill"><strong>AI</strong>Anthropic Claude API (claude-sonnet-4-6). Data tränas ej på via API.</div>
+        <div class="tech-pill"><strong>AI</strong>AWS Bedrock (Claude via Bedrock, EU-region). Data tränas ej på.</div>
         <div class="tech-pill"><strong>Jobb-data</strong>JobTech Dev API — Arbetsförmedlingens Platsbanken.</div>
         <div class="tech-pill"><strong>E-post</strong>Resend (transaktionellt). DPA tecknat.</div>
         <div class="tech-pill"><strong>Databas</strong>Supabase PostgreSQL, EU/Frankfurt.</div>
@@ -3380,7 +3380,7 @@
         <div class="security-item"><strong>OTP-autentisering</strong>Ingen lösenordsdatabas att läcka.</div>
         <div class="security-item"><strong>Row Level Security</strong>Teknisk dataisolering per användare i Supabase.</div>
         <div class="security-item"><strong>Data i EU/Frankfurt</strong>Supabase Europa. Inga överföringar till tredje land.</div>
-        <div class="security-item"><strong>Anthropic DPA</strong>Tecknat. Data tränas ej på.</div>
+        <div class="security-item"><strong>AWS DPA</strong>Tecknat. AI körs i AWS Bedrock, EU-region. Data tränas ej på.</div>
         <div class="security-item"><strong>Resend DPA</strong>Tecknat för all transaktionell e-post.</div>
         <div class="security-item"><strong>Incidenthanteringsrutin</strong>v1.0, april 2026.</div>
         <div class="security-item"><strong>Dataraderingsrutin</strong>GDPR artikel 17. Klar.</div>
@@ -3690,7 +3690,7 @@
             <p>Ärlig fråga, ärligt svar.</p>
             <p><strong>Ni äger ER data och konfiguration.</strong> Plattformen utvecklas och driftas av PathfinderAI — ni får alltid full dataexport på begäran. Det står i avtalet.</p>
             <p><strong>Escrow-spår om något oförutsett händer:</strong> kod och driftnycklar deponeras hos tredje part. Skulle grundaren försvinna kan en annan utvecklare ta vid utan att ni måste börja om.</p>
-            <p>Plattformen byggs på etablerade verktyg (Supabase, Vercel, Anthropic) — inga proprietära format, inga inlåsningar.</p>
+            <p>Plattformen byggs på etablerade verktyg (Supabase, Vercel, AWS) — inga proprietära format, inga inlåsningar.</p>
           </div>
         </details>
 
