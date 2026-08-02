@@ -74,6 +74,7 @@
     --radius: 8px;
     --maxw: 1080px;
     --grad: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 100%);
+    --grad-gold: linear-gradient(100deg, #8a6d24 0%, #c99a2e 55%, #e0b23c 100%);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -105,6 +106,13 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+  .grad-gold-text {
+    background: var(--grad-gold);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
   }
 
   .skip-link {
@@ -229,7 +237,11 @@
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
     padding: 26px; display: flex; flex-direction: column; gap: 12px; position: relative;
   }
-  .product.flagship { border-color: #b9cfdd; box-shadow: 0 1px 0 #b9cfdd, 0 12px 32px -24px rgba(21,87,122,0.35); }
+  .product.flagship {
+    border-color: #d8c89a;
+    background: linear-gradient(160deg, #fffdf6 0%, #ffffff 55%);
+    box-shadow: 0 1px 0 #d8c89a, 0 14px 36px -24px rgba(184,144,47,0.45);
+  }
   .status {
     align-self: flex-start; font-size: 0.75rem; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.07em;
@@ -487,16 +499,16 @@
   <div class="container">
     <span class="section-label">Produkter</span>
     <h2>Studions portfölj</h2>
-    <p class="lede">Egna produkter, byggda och driftade av oss. En live, två på väg.</p>
+    <p class="lede">Egna produkter, byggda och driftade av oss. Två live, en på väg.</p>
 
     <div class="product-grid">
       <div class="product flagship">
         <span class="status live">Live</span>
-        <h3>CvMatchen</h3>
+        <h3><span class="grad-gold-text">CvMatchen</span></h3>
         <p>
-          Plattformen som hjälper kommuner att klara aktivitetskravet: CV-byggare med AI-stöd,
-          jobbmatchning mot Platsbanken, övningsportal och automatisk aktivitetsdokumentation.
-          I drift, med tre månaders kostnadsfri pilot för kommuner.
+          Flaggskeppet. CV:t som tog två timmar tar femton minuter, jobben matchas direkt
+          från Platsbanken och dokumentationen skriver sig själv medan deltagaren jobbar.
+          Kommunerna klarar aktivitetskravet — handläggarna klarar dagen.
         </p>
         <a class="plink" href="#kommuner">Läs mer om CvMatchen ↓</a>
       </div>
@@ -527,18 +539,18 @@
 <section id="kommuner">
   <div class="container">
     <span class="section-label">För kommuner</span>
-    <h2>CvMatchen — lagkravet är inte på väg. Det är här.</h2>
+    <h2><span class="grad-gold-text">CvMatchen</span> möter aktivitetskravet. På riktigt.</h2>
     <div class="law-grid" style="margin-top: 18px;">
       <div>
         <p>
           Sedan den 1 juli 2026 ska kommuner erbjuda personer med försörjningsstöd
           aktiviteter på heltid — och kunna visa att det sker. Fler möten, mer uppföljning
-          och betydligt mer dokumentation, med samma antal handläggare som innan.
+          och en lavin av dokumentation. Med samma antal handläggare som innan.
         </p>
         <p style="margin-top: 12px;">
-          CvMatchen samlar CV-arbete, jobbsök, övningar och dokumentation på en plats.
-          Deltagarens aktivitet loggas automatiskt och blir handläggarens underlag —
-          medan arbetet pågår, inte i efterhand.
+          CvMatchen vänder på det: deltagaren bygger CV, söker jobb och gör övningar i
+          plattformen — och varje minut loggas automatiskt. Underlaget skriver sig självt
+          medan arbetet pågår. Handläggaren gör det en människa behövs för.
         </p>
       </div>
       <ul class="law-points">
@@ -551,7 +563,7 @@
     <div class="feature-grid">
       <div class="feature">
         <h3>CV-byggare med AI-stöd</h3>
-        <p>Färdigt, professionellt CV på 15 minuter i stället för 2 timmar. Bild, mallar och språkstöd ingår.</p>
+        <p>Två timmar i mötesrum blir femton minuter i mobilen. Bild, mallar och språkstöd ingår — resultatet ser ut som ett proffs skrivit det.</p>
       </div>
       <div class="feature">
         <h3>Jobbmatchning mot Platsbanken</h3>
@@ -559,7 +571,7 @@
       </div>
       <div class="feature">
         <h3>Automatisk aktivitetslogg</h3>
-        <p>Tid, sökta jobb och genomförda övningar loggas per deltagare. Dokumentationskravet uppfylls löpande.</p>
+        <p>Tid, sökta jobb och övningar loggas medan de händer. Dokumentationskravet uppfylls på köpet — ingen skriver ikapp på fredagar.</p>
       </div>
       <div class="feature">
         <h3>Övningsportal — 100+ moduler</h3>
@@ -586,7 +598,7 @@
       Eller prova direkt på <a href="https://cvmatchen.com" target="_blank" rel="noopener">cvmatchen.com</a>.
     </p>
 
-    <div class="pilot-box">
+    <div class="pilot-box" style="border-left-color: #c99a2e;">
       <strong>Tre månader utan kostnad — sedan bestämmer ni.</strong>
       <ul>
         <li>Obegränsat antal användare, uppsättning, utbildning på plats och support (svar inom en arbetsdag)</li>
