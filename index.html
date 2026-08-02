@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CvMatchen — plattformen för aktivitetskravet · PathfinderAI</title>
-<meta name="description" content="Aktivitetskravet gäller sedan 1 juli 2026. CvMatchen hjälper kommuner att dokumentera heltidsaktivitet, spara handläggartid och klara lagkravet. EU-drift, GDPR-paket, tre månaders kostnadsfri pilot.">
+<title>PathfinderAI — AI-studio i Landskrona · CvMatchen, webshop &amp; Mythos</title>
+<meta name="description" content="PathfinderAI är en AI-studio som bygger produkter som gör nytta: CvMatchen för kommuner (live), webshop under utveckling och Mythos näst på tur. Vi tar även AI-uppdrag åt företag. EU-drift, GDPR, raka besked.">
 <link rel="canonical" href="https://pathfinderai.se/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="CvMatchen — plattformen för aktivitetskravet">
-<meta property="og:description" content="Aktivitetskravet gäller nu. CvMatchen dokumenterar heltidsaktivitet och frigör handläggartid. Tre månaders kostnadsfri pilot.">
+<meta property="og:title" content="PathfinderAI — AI-studio som bygger produkter som levererar">
+<meta property="og:description" content="CvMatchen live för kommuner, webshop under utveckling, Mythos näst på tur. AI-uppdrag åt företag. EU-drift och raka besked.">
 <meta property="og:url" content="https://pathfinderai.se/">
 <meta property="og:image" content="https://pathfinderai.se/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="sv_SE">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="CvMatchen — plattformen för aktivitetskravet">
-<meta name="twitter:description" content="Aktivitetskravet gäller nu. Tre månaders kostnadsfri pilot för kommuner.">
+<meta name="twitter:title" content="PathfinderAI — AI-studio i Landskrona">
+<meta name="twitter:description" content="CvMatchen för kommuner, webshop under utveckling, Mythos näst på tur. AI-uppdrag åt företag.">
 <meta name="twitter:image" content="https://pathfinderai.se/assets/og-image.png">
 <script type="application/ld+json">
 {
@@ -29,6 +29,7 @@
       "url": "https://pathfinderai.se/",
       "email": "hej@pathfinderai.se",
       "telephone": "+46766071757",
+      "description": "AI-studio i Landskrona som bygger egna produkter och tar AI-uppdrag åt företag och kommuner.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Landskrona",
@@ -62,23 +63,22 @@
     --surface: #ffffff;
     --border: #e2e0d8;
     --border-strong: #c9c6bb;
-    --text: #22303a;
+    --text: #1f2c36;
     --muted: #55636c;
     --accent: #15577a;
     --accent-dark: #0e405c;
+    --accent-2: #1a7a6d;
     --accent-bg: #eef4f8;
     --gold: #8a6d24;
     --ok: #2e6b3f;
-    --radius: 6px;
-    --maxw: 1060px;
+    --radius: 8px;
+    --maxw: 1080px;
+    --grad: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 100%);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -87,21 +87,25 @@
     color: var(--text);
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
-  .container {
-    max-width: var(--maxw);
-    margin: 0 auto;
-    padding: 0 20px;
-  }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
-  h1, h2, h3, h4 { line-height: 1.25; letter-spacing: -0.015em; }
-  h1 { font-size: clamp(1.9rem, 4.2vw, 2.7rem); font-weight: 700; }
-  h2 { font-size: clamp(1.45rem, 3vw, 1.9rem); font-weight: 700; margin-bottom: 14px; }
+  h1, h2, h3, h4 { line-height: 1.22; letter-spacing: -0.018em; }
+  h1 { font-size: clamp(2rem, 4.6vw, 3rem); font-weight: 750; }
+  h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 720; margin-bottom: 14px; }
   h3 { font-size: 1.15rem; font-weight: 650; }
 
   a { color: var(--accent); text-underline-offset: 3px; }
   a:hover { color: var(--accent-dark); }
+
+  .grad-text {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 
   .skip-link {
     position: absolute; left: -9999px; top: 0;
@@ -109,9 +113,33 @@
   }
   .skip-link:focus { left: 0; }
 
+  /* ---------- Flowing background text ---------- */
+  .marquee {
+    position: absolute; inset: 0; overflow: hidden;
+    pointer-events: none; user-select: none; z-index: 0;
+  }
+  .marquee-row {
+    position: absolute; left: 0; white-space: nowrap;
+    font-weight: 800; letter-spacing: -0.02em;
+    font-size: clamp(90px, 14vw, 190px);
+    color: #14314408;
+    -webkit-text-stroke: 1px #14314414;
+    animation: drift 90s linear infinite;
+  }
+  .marquee-row.r2 { animation-duration: 120s; animation-direction: reverse; }
+  @keyframes drift {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .marquee-row { animation: none; }
+  }
+
   /* ---------- Nav ---------- */
   header.site-header {
-    background: var(--surface);
+    background: rgba(255,255,255,0.86);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     position: sticky; top: 0; z-index: 50;
   }
@@ -119,26 +147,19 @@
     display: flex; align-items: center; justify-content: space-between;
     min-height: 64px; gap: 16px;
   }
-  .logo {
-    display: flex; align-items: center; gap: 10px;
-    text-decoration: none; color: var(--text);
-  }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
   .logo svg { width: 30px; height: 30px; flex-shrink: 0; }
-  .logo-name { font-weight: 700; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .logo-name { font-weight: 750; font-size: 1.05rem; letter-spacing: -0.01em; }
   .logo-name .ai { color: var(--gold); }
   .logo-sub { display: block; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.02em; }
 
-  .nav-links {
-    display: flex; align-items: center; gap: 4px; list-style: none;
-  }
+  .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
   .nav-links a {
     display: block; padding: 8px 12px; font-size: 0.95rem;
     color: var(--text); text-decoration: none; border-radius: var(--radius);
   }
   .nav-links a:hover { background: var(--accent-bg); color: var(--accent-dark); }
-  .nav-links a.nav-cta {
-    background: var(--accent); color: #fff; font-weight: 600; margin-left: 6px;
-  }
+  .nav-links a.nav-cta { background: var(--accent); color: #fff; font-weight: 600; margin-left: 6px; }
   .nav-links a.nav-cta:hover { background: var(--accent-dark); color: #fff; }
 
   .nav-toggle {
@@ -146,8 +167,7 @@
     border-radius: var(--radius); padding: 8px 12px; font-size: 0.95rem;
     color: var(--text); cursor: pointer;
   }
-
-  @media (max-width: 860px) {
+  @media (max-width: 900px) {
     .nav-toggle { display: block; }
     .nav-links {
       display: none; position: absolute; top: 100%; left: 0; right: 0;
@@ -161,24 +181,14 @@
   }
 
   /* ---------- Sections ---------- */
-  section { padding: 56px 0; }
+  section { padding: 60px 0; position: relative; }
   section + section { border-top: 1px solid var(--border); }
   .section-label {
     display: inline-block; font-size: 0.8rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent);
     margin-bottom: 10px;
   }
-  .lede { font-size: 1.1rem; color: var(--muted); max-width: 46em; }
-
-  /* ---------- Hero ---------- */
-  .hero { background: var(--surface); padding: 64px 0; }
-  .hero .badge {
-    display: inline-block; background: var(--accent-bg); color: var(--accent-dark);
-    border: 1px solid #cddee9; border-radius: 999px;
-    font-size: 0.85rem; font-weight: 600; padding: 4px 14px; margin-bottom: 18px;
-  }
-  .hero h1 { max-width: 21em; margin-bottom: 16px; }
-  .hero .lede { margin-bottom: 28px; }
+  .lede { font-size: 1.12rem; color: var(--muted); max-width: 46em; }
 
   .btn {
     display: inline-block; padding: 12px 22px; border-radius: var(--radius);
@@ -191,14 +201,48 @@
   .btn-secondary:hover { border-color: var(--accent); }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--surface);
+    padding: 88px 0 72px;
+    overflow: hidden;
+  }
+  .hero .container { position: relative; z-index: 1; }
+  .hero .badge {
+    display: inline-block; background: var(--accent-bg); color: var(--accent-dark);
+    border: 1px solid #cddee9; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 600; padding: 4px 14px; margin-bottom: 20px;
+  }
+  .hero h1 { max-width: 20em; margin-bottom: 18px; }
+  .hero .lede { margin-bottom: 30px; }
   .hero-facts {
     display: flex; flex-wrap: wrap; gap: 10px 34px;
-    margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--border);
+    margin-top: 38px; padding-top: 24px; border-top: 1px solid var(--border);
     font-size: 0.95rem; color: var(--muted);
   }
   .hero-facts strong { color: var(--text); font-weight: 700; }
 
-  /* ---------- Law context ---------- */
+  /* ---------- Products ---------- */
+  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
+  @media (max-width: 900px) { .product-grid { grid-template-columns: 1fr; } }
+  .product {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 26px; display: flex; flex-direction: column; gap: 12px; position: relative;
+  }
+  .product.flagship { border-color: #b9cfdd; box-shadow: 0 1px 0 #b9cfdd, 0 12px 32px -24px rgba(21,87,122,0.35); }
+  .status {
+    align-self: flex-start; font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 3px 10px; border-radius: 999px; border: 1px solid;
+  }
+  .status.live { color: var(--ok); border-color: #bcd8c3; background: #eef6f0; }
+  .status.build { color: var(--accent-dark); border-color: #cddee9; background: var(--accent-bg); }
+  .status.next { color: var(--gold); border-color: #ddd0a8; background: #faf6ea; }
+  .product h3 { font-size: 1.3rem; letter-spacing: -0.015em; }
+  .product p { font-size: 0.96rem; color: var(--muted); flex-grow: 1; }
+  .product .plink { font-size: 0.95rem; font-weight: 600; }
+
+  /* ---------- Two-track (kommun / företag) ---------- */
   .law-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
   @media (max-width: 780px) { .law-grid { grid-template-columns: 1fr; } }
   .law-points { list-style: none; display: grid; gap: 14px; }
@@ -208,10 +252,7 @@
   }
   .law-points strong { display: block; margin-bottom: 2px; }
 
-  /* ---------- Features ---------- */
-  .feature-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px;
-  }
+  .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
   @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 580px) { .feature-grid { grid-template-columns: 1fr; } }
   .feature {
@@ -226,12 +267,33 @@
     padding: 1px 7px; margin-left: 6px; vertical-align: 2px; text-transform: uppercase;
   }
 
-  /* ---------- Video ---------- */
   .video-frame {
     margin-top: 26px; background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 10px;
   }
-  .video-frame video { display: block; width: 100%; border-radius: 4px; background: #000; }
+  .video-frame video { display: block; width: 100%; border-radius: 5px; background: #000; }
+
+  /* ---------- Företag ---------- */
+  .biz-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: start; margin-top: 8px; }
+  @media (max-width: 860px) { .biz-grid { grid-template-columns: 1fr; } }
+  .biz-list { list-style: none; display: grid; gap: 12px; margin-top: 20px; }
+  .biz-list li {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 14px 18px; font-size: 0.96rem;
+  }
+  .biz-list strong { display: block; }
+  .biz-list span { color: var(--muted); font-size: 0.93rem; }
+  .case {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 24px;
+  }
+  .case .case-tag { font-size: 0.78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+  .case h3 { margin: 8px 0 14px; }
+  .case dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.94rem; }
+  .case dt { font-weight: 650; }
+  .case dd { color: var(--muted); }
+  .case .result { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.95rem; }
+  .case .result strong { color: var(--ok); }
 
   /* ---------- Steps ---------- */
   .steps { counter-reset: step; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 26px; }
@@ -245,13 +307,13 @@
     content: counter(step);
     display: inline-flex; align-items: center; justify-content: center;
     width: 30px; height: 30px; border-radius: 50%;
-    background: var(--accent-bg); color: var(--accent-dark);
+    background: var(--grad); color: #fff;
     font-weight: 700; font-size: 0.95rem; margin-bottom: 12px;
   }
   .steps h3 { font-size: 1rem; margin-bottom: 6px; }
   .steps p { font-size: 0.93rem; color: var(--muted); }
 
-  /* ---------- Security table ---------- */
+  /* ---------- Security ---------- */
   .sec-table { width: 100%; border-collapse: collapse; margin-top: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; font-size: 0.96rem; }
   .sec-table th, .sec-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; }
   .sec-table tr:last-child th, .sec-table tr:last-child td { border-bottom: none; }
@@ -273,26 +335,9 @@
   .pilot-box li { margin-bottom: 6px; font-size: 0.97rem; }
   .pilot-foot { margin-top: 18px; font-size: 0.95rem; color: var(--muted); max-width: 52em; }
 
-  /* ---------- Cases ---------- */
-  .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 26px; }
-  @media (max-width: 780px) { .case-grid { grid-template-columns: 1fr; } }
-  .case {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 24px;
-  }
-  .case .case-tag { font-size: 0.8rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
-  .case h3 { margin: 8px 0 14px; }
-  .case dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.94rem; }
-  .case dt { font-weight: 650; }
-  .case dd { color: var(--muted); }
-  .case .result { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); font-size: 0.95rem; }
-  .case .result strong { color: var(--ok); }
-
   /* ---------- FAQ ---------- */
   .faq-list { margin-top: 22px; display: grid; gap: 10px; max-width: 780px; }
-  .faq-item {
-    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-  }
+  .faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
   .faq-item summary {
     cursor: pointer; padding: 16px 18px; font-weight: 650; font-size: 1rem;
     list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
@@ -306,10 +351,7 @@
   /* ---------- About ---------- */
   .about-grid { display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: start; margin-top: 24px; }
   @media (max-width: 780px) { .about-grid { grid-template-columns: 1fr; } }
-  .portrait {
-    width: 100%; max-width: 260px; border-radius: var(--radius);
-    border: 1px solid var(--border); display: block;
-  }
+  .portrait { width: 100%; max-width: 260px; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
   .portrait-meta { margin-top: 10px; }
   .portrait-meta .name { font-weight: 700; }
   .portrait-meta .role { font-size: 0.9rem; color: var(--muted); }
@@ -336,10 +378,7 @@
   .contact-card .value { font-weight: 650; margin: 2px 0; }
   .contact-card .meta { font-size: 0.88rem; color: var(--muted); }
 
-  .contact-form-wrap {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 26px;
-  }
+  .contact-form-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; }
   .contact-form-wrap h3 { margin-bottom: 4px; }
   .contact-form-wrap .sub { font-size: 0.93rem; color: var(--muted); margin-bottom: 18px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -367,8 +406,9 @@
   footer {
     border-top: 1px solid var(--border); background: var(--surface);
     padding: 34px 0; font-size: 0.9rem; color: var(--muted);
+    position: relative; overflow: hidden;
   }
-  .footer-inner { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; justify-content: space-between; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
   .footer-links { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; }
   .footer-links a { color: var(--muted); text-decoration: none; }
   .footer-links a:hover { color: var(--accent-dark); text-decoration: underline; }
@@ -394,17 +434,17 @@
       </svg>
       <span>
         <span class="logo-name">Pathfinder<span class="ai">AI</span></span>
-        <span class="logo-sub">CvMatchen för kommuner</span>
+        <span class="logo-sub">AI-studio · Landskrona</span>
       </span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Meny</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#plattformen">Plattformen</a></li>
-      <li><a href="#sakerhet">Säkerhet &amp; GDPR</a></li>
-      <li><a href="#pilot">Pilot &amp; pris</a></li>
-      <li><a href="#faq">Frågor &amp; svar</a></li>
-      <li><a href="#om">Om oss</a></li>
-      <li><a href="#kontakt" class="nav-cta">Boka demo</a></li>
+      <li><a href="#produkter">Produkter</a></li>
+      <li><a href="#kommuner">Kommuner</a></li>
+      <li><a href="#foretag">Företag</a></li>
+      <li><a href="#sakerhet">Säkerhet</a></li>
+      <li><a href="#om">Om</a></li>
+      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
     </ul>
   </div>
 </header>
@@ -413,70 +453,106 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-row" style="top: 8%;">
+      <span>CvMatchen&nbsp;·&nbsp;Webshop&nbsp;·&nbsp;Mythos&nbsp;·&nbsp;AI som gör nytta&nbsp;·&nbsp;CvMatchen&nbsp;·&nbsp;Webshop&nbsp;·&nbsp;Mythos&nbsp;·&nbsp;AI som gör nytta&nbsp;·&nbsp;</span>
+    </div>
+    <div class="marquee-row r2" style="bottom: 4%;">
+      <span>Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;</span>
+    </div>
+  </div>
   <div class="container">
-    <span class="badge">Aktivitetskravet gäller sedan 1 juli 2026</span>
-    <h1>Ett verktyg som hjälper er kommun att klara aktivitetskravet — utan att handläggarna går under.</h1>
+    <span class="badge">AI-studio · Landskrona</span>
+    <h1>Vi bygger AI-produkter som <span class="grad-text">gör nytta på riktigt</span>.</h1>
     <p class="lede">
-      CvMatchen samlar CV-arbete, jobbsök, övningar och dokumentation på en plats.
-      Deltagarnas aktivitet loggas automatiskt, underlagen skriver sig själva och
-      handläggarna får tid till det som kräver en människa.
-      Utvecklad av PathfinderAI i Landskrona.
+      PathfinderAI är en produktstudio. CvMatchen hjälper kommuner att klara aktivitetskravet
+      — live och i drift. Nästa produkter är på väg ur verkstaden, och däremellan tar vi
+      AI-uppdrag åt företag som vill ha resultat, inte buzzwords.
     </p>
     <div class="cta-row">
-      <a href="#kontakt" class="btn btn-primary">Boka en demo (30 min)</a>
-      <a href="https://cvmatchen.com" target="_blank" rel="noopener" class="btn btn-secondary">Prova plattformen live</a>
+      <a href="#produkter" class="btn btn-primary">Se produkterna</a>
+      <a href="#kontakt" class="btn btn-secondary">Boka ett samtal</a>
     </div>
     <div class="hero-facts">
-      <span><strong>2 h → 15 min</strong> handläggartid per CV</span>
+      <span><strong>1 produkt live</strong> · 2 under utveckling</span>
       <span><strong>All data i EU</strong> (Frankfurt)</span>
-      <span><strong>3 månader</strong> kostnadsfri pilot</span>
-      <span><strong>Live i drift</strong> på cvmatchen.com</span>
+      <span><strong>2 h → 15 min</strong> handläggartid per CV</span>
+      <span><strong>Inga mellanled</strong> — du pratar med grundaren</span>
     </div>
   </div>
 </section>
 
-<!-- LAGKRAVET -->
-<section id="lagkravet">
+<!-- PRODUKTER -->
+<section id="produkter">
   <div class="container">
-    <div class="law-grid">
+    <span class="section-label">Produkter</span>
+    <h2>Studions portfölj</h2>
+    <p class="lede">Egna produkter, byggda och driftade av oss. En live, två på väg.</p>
+
+    <div class="product-grid">
+      <div class="product flagship">
+        <span class="status live">Live</span>
+        <h3>CvMatchen</h3>
+        <p>
+          Plattformen som hjälper kommuner att klara aktivitetskravet: CV-byggare med AI-stöd,
+          jobbmatchning mot Platsbanken, övningsportal och automatisk aktivitetsdokumentation.
+          I drift, med tre månaders kostnadsfri pilot för kommuner.
+        </p>
+        <a class="plink" href="#kommuner">Läs mer om CvMatchen ↓</a>
+      </div>
+      <div class="product">
+        <span class="status build">Byggs nu</span>
+        <h3>Webshop</h3>
+        <p>
+          En e-handelslösning med AI i kärnan — byggd med samma principer som CvMatchen:
+          enkel att använda, EU-drift och mätbar nytta. Lanseras när den är redo,
+          inte när kalendern säger det.
+        </p>
+        <a class="plink" href="#kontakt">Vill du veta mer? Hör av dig →</a>
+      </div>
+      <div class="product">
+        <span class="status next">Näst på tur</span>
+        <h3>Mythos</h3>
+        <p>
+          Studions nästa produkt. Vi berättar mer när den närmar sig —
+          men riktningen är densamma: AI som löser ett verkligt problem,
+          utan krångel och utan inlåsning.
+        </p>
+        <a class="plink" href="#kontakt">Följ utvecklingen →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KOMMUNER / CVMATCHEN -->
+<section id="kommuner">
+  <div class="container">
+    <span class="section-label">För kommuner</span>
+    <h2>CvMatchen — lagkravet är inte på väg. Det är här.</h2>
+    <div class="law-grid" style="margin-top: 18px;">
       <div>
-        <span class="section-label">Läget just nu</span>
-        <h2>Lagkravet är inte på väg. Det är här.</h2>
         <p>
           Sedan den 1 juli 2026 ska kommuner erbjuda personer med försörjningsstöd
-          aktiviteter på heltid — och kunna visa att det sker. Det betyder fler möten,
-          mer uppföljning och betydligt mer dokumentation, med samma antal handläggare som innan.
+          aktiviteter på heltid — och kunna visa att det sker. Fler möten, mer uppföljning
+          och betydligt mer dokumentation, med samma antal handläggare som innan.
         </p>
         <p style="margin-top: 12px;">
-          De flesta kommuner löser det i dag med en blandning av spridda system,
-          Excel och manuella anteckningar. Det håller inte över tid — varken för
-          personalen eller vid en granskning.
+          CvMatchen samlar CV-arbete, jobbsök, övningar och dokumentation på en plats.
+          Deltagarens aktivitet loggas automatiskt och blir handläggarens underlag —
+          medan arbetet pågår, inte i efterhand.
         </p>
       </div>
       <ul class="law-points">
         <li><strong>Heltidsaktivitet ska erbjudas</strong> Jobbsök, kompetenshöjande insatser och praktik ska tillsammans motsvara heltid.</li>
         <li><strong>Aktiviteten ska dokumenteras</strong> Vad varje deltagare gjort, när och hur mycket — spårbart per individ.</li>
-        <li><strong>Uppföljningen ska hålla vid granskning</strong> Underlag ska kunna tas fram i efterhand utan att handläggare rekonstruerar ur minnet.</li>
+        <li><strong>Underlagen ska hålla vid granskning</strong> Kan tas fram i efterhand utan att handläggare rekonstruerar ur minnet.</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- PLATTFORMEN -->
-<section id="plattformen">
-  <div class="container">
-    <span class="section-label">Plattformen</span>
-    <h2>Vad CvMatchen gör</h2>
-    <p class="lede">
-      Deltagaren arbetar i plattformen — bygger CV, söker jobb, gör övningar.
-      Allt loggas automatiskt och blir handläggarens dokumentationsunderlag.
-      Mobilanpassad från grunden: ingen dator krävs.
-    </p>
 
     <div class="feature-grid">
       <div class="feature">
         <h3>CV-byggare med AI-stöd</h3>
-        <p>Färdigt, professionellt CV på 15 minuter i stället för 2 timmar i mötesrum. Bild, mallar och språkstöd ingår.</p>
+        <p>Färdigt, professionellt CV på 15 minuter i stället för 2 timmar. Bild, mallar och språkstöd ingår.</p>
       </div>
       <div class="feature">
         <h3>Jobbmatchning mot Platsbanken</h3>
@@ -484,10 +560,10 @@
       </div>
       <div class="feature">
         <h3>Automatisk aktivitetslogg</h3>
-        <p>Tid, sökta jobb och genomförda övningar loggas per deltagare. Dokumentationskravet uppfylls medan arbetet pågår.</p>
+        <p>Tid, sökta jobb och genomförda övningar loggas per deltagare. Dokumentationskravet uppfylls löpande.</p>
       </div>
       <div class="feature">
-        <h3>Övningsportal — 105 moduler</h3>
+        <h3>Övningsportal — 100+ moduler</h3>
         <p>Sex spår: introduktion, arbete, studier, hälsa, ekonomi och digital vardag. Lektioner, övningar och quiz.</p>
       </div>
       <div class="feature">
@@ -508,7 +584,66 @@
     </div>
     <p style="margin-top: 10px; font-size: 0.9rem; color: var(--muted);">
       Tre minuter: vad CvMatchen är, vilket problem det löser och hur det fungerar.
+      Eller prova direkt på <a href="https://cvmatchen.com" target="_blank" rel="noopener">cvmatchen.com</a>.
     </p>
+
+    <div class="pilot-box">
+      <strong>Tre månader utan kostnad — sedan bestämmer ni.</strong>
+      <ul>
+        <li>Obegränsat antal användare, uppsättning, utbildning på plats och support (svar inom en arbetsdag)</li>
+        <li>Månadsrapport om användning och utfall</li>
+        <li>GDPR-paket: PuB-avtal, sub-processorlista och tillgänglighetsdeklaration</li>
+        <li>Ingen bindningstid, ingen uppstartsavgift — avslutar ni får ni ut all er data</li>
+      </ul>
+    </div>
+    <p class="pilot-foot">
+      Pris efter pilot sätts per kommun utifrån storlek och behov, under gränsen för
+      direktupphandling (700 000 kr exkl. moms). Räkneexempel: vid 700 ärenden/år frigörs
+      cirka 875 000 kr i handläggartid — netto ~580 000 kr efter plattformskostnad.
+    </p>
+    <div class="cta-row" style="margin-top: 22px;">
+      <a href="#kontakt" class="btn btn-primary">Boka en demo (30 min)</a>
+      <a href="https://cvmatchen.com" target="_blank" rel="noopener" class="btn btn-secondary">Prova live</a>
+    </div>
+  </div>
+</section>
+
+<!-- FÖRETAG -->
+<section id="foretag">
+  <div class="container">
+    <span class="section-label">För företag</span>
+    <h2>AI-uppdrag som betalar sig</h2>
+    <div class="biz-grid">
+      <div>
+        <p class="lede">
+          Mellan produktsläppen tar studion uppdrag åt företag som vill använda AI där
+          det faktiskt lönar sig — automatisera det tråkiga, inte ersätta det viktiga.
+          Samma verktygslåda som bygger våra produkter, riktad mot ert problem.
+        </p>
+        <ul class="biz-list">
+          <li><strong>Automatisera administration</strong><span>Mejlflöden, prioritering, sammanställningar — det som äter timmar varje vecka.</span></li>
+          <li><strong>AI in i era befintliga system</strong><span>Vi kopplar AI mot verktygen ni redan har i stället för att byta ut dem.</span></li>
+          <li><strong>Skräddarsydda lösningar</strong><span>Från idé till driftsatt lösning — ni äger resultatet när det är levererat och betalt.</span></li>
+        </ul>
+        <p style="margin-top: 20px; font-size: 0.95rem; color: var(--muted);">
+          Varje uppdrag börjar med en kostnadsfri verksamhetsanalys. Är AI fel svar på ert
+          problem säger vi det — hellre ett kort ärligt möte än ett långt dyrt projekt.
+        </p>
+      </div>
+      <div class="case">
+        <span class="case-tag">Case · tjänsteföretag, 5 anställda</span>
+        <h3>Halverad administrationstid</h3>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Ledning och kundansvariga drunknade i inkommande mejl och ad hoc-prioriteringar.</dd>
+          <dt>Lösning</dt>
+          <dd>AI-genererad prioriterad arbetslista varje morgon, byggd på inkorg och kalender.</dd>
+          <dt>Tid till leverans</dt>
+          <dd>Under en månad från analys till drift.</dd>
+        </dl>
+        <div class="result"><strong>−50 % administrationstid</strong> — tiden flyttades till fakturerbara kunduppdrag.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -516,24 +651,23 @@
 <section id="process">
   <div class="container">
     <span class="section-label">Så går det till</span>
-    <h2>Från demo till drift på några veckor</h2>
-    <p class="lede">Plattformen är redan i drift. Det vi gör tillsammans är att anpassa den till er kommun och utbilda personalen.</p>
+    <h2>Från första samtal till drift</h2>
     <ol class="steps">
       <li>
-        <h3>Demo</h3>
-        <p>30 minuter, digitalt eller på plats. Vi visar plattformen och ni ställer frågorna. Kostnadsfritt.</p>
+        <h3>Samtal</h3>
+        <p>30 minuter, digitalt eller på plats. Ni beskriver läget, vi säger ärligt om vi kan hjälpa. Kostnadsfritt.</p>
       </li>
       <li>
-        <h3>Uppsättning</h3>
-        <p>1–3 veckor. Er kommun konfigureras, inloggning kopplas och personalen utbildas på plats. Ingår i priset.</p>
+        <h3>Analys &amp; förslag</h3>
+        <p>Konkret förslag med omfattning, tidplan och pris. För kommuner: uppsättning av CvMatchen på 1–3 veckor.</p>
       </li>
       <li>
-        <h3>Pilot i drift</h3>
-        <p>Tre månader utan kostnad. Support inom en arbetsdag och månadsrapport om användning och utfall.</p>
+        <h3>Leverans / pilot</h3>
+        <p>Kommuner kör tre månaders kostnadsfri pilot. Företagsuppdrag levereras mot avtalade milstolpar.</p>
       </li>
       <li>
-        <h3>Beslut</h3>
-        <p>Efter piloten utvärderar ni mot faktiskt utfall. Fortsätter ni inte får ni ut all er data — och vi skiljs som vänner.</p>
+        <h3>Beslut &amp; drift</h3>
+        <p>Ni utvärderar mot faktiskt utfall. Support inom en arbetsdag, och ni äger er data — alltid.</p>
       </li>
     </ol>
   </div>
@@ -544,7 +678,7 @@
   <div class="container">
     <span class="section-label">Säkerhet &amp; GDPR</span>
     <h2>Det era jurister och IT kommer att fråga om</h2>
-    <p class="lede">Grundkraven för offentlig sektor — redovisade rakt av, med nuvarande status.</p>
+    <p class="lede">Grundkraven — redovisade rakt av, med nuvarande status. Gäller studions produkter, med CvMatchen som exempel.</p>
 
     <table class="sec-table">
       <tbody>
@@ -558,11 +692,11 @@
         </tr>
         <tr>
           <th scope="row">Personuppgiftsbiträdesavtal</th>
-          <td>PuB-avtal redo att tecknas med kommunen. DPA tecknade med samtliga underleverantörer (AWS, Supabase, Resend), sub-processorlista ingår. <span class="sec-status">Redo</span></td>
+          <td>PuB-avtal redo att tecknas. DPA tecknade med samtliga underleverantörer (AWS, Supabase, Resend), sub-processorlista ingår. <span class="sec-status">Redo</span></td>
         </tr>
         <tr>
           <th scope="row">Inloggning</th>
-          <td>Deltagare: engångskod (OTP) — ingen lösenordsdatabas att läcka. Handläggare: inloggning med kommunkonto via Microsoft Entra ID (pågående implementation).</td>
+          <td>Deltagare: engångskod (OTP) — ingen lösenordsdatabas att läcka. Handläggare: kommunkonto via Microsoft Entra ID (pågående implementation).</td>
         </tr>
         <tr>
           <th scope="row">Dataisolering</th>
@@ -584,76 +718,10 @@
     </table>
 
     <p class="sec-note">
-      Tekniken i korthet: mobilanpassad webbapp (PWA), serverdrift på Vercel i EU,
+      Tekniken i korthet: mobilanpassade webbappar (PWA), serverdrift på Vercel i EU,
       jobbdata från Arbetsförmedlingens JobTech-API, transaktionell e-post via Resend.
       Etablerade komponenter utan proprietära format — ingen inlåsning.
     </p>
-  </div>
-</section>
-
-<!-- PILOT & PRIS -->
-<section id="pilot">
-  <div class="container">
-    <span class="section-label">Pilot &amp; pris</span>
-    <h2>Tre månader utan kostnad. Sedan bestämmer ni.</h2>
-    <p class="lede">
-      Vi tar risken i stället för att be er ta den. Beslut fattas efter piloten,
-      utifrån faktiskt utfall i er kommun — inte utifrån en säljpresentation.
-    </p>
-
-    <div class="pilot-box">
-      <strong>I piloten ingår allt:</strong>
-      <ul>
-        <li>Obegränsat antal användare — deltagare och handläggare</li>
-        <li>Uppsättning, utbildning på plats och löpande support (svar inom en arbetsdag)</li>
-        <li>Månadsrapport om användning och utfall</li>
-        <li>GDPR-paket: PuB-avtal, sub-processorlista och tillgänglighetsdeklaration</li>
-      </ul>
-      <p style="margin-top: 14px;">
-        <strong>Ingen bindningstid, ingen uppstartsavgift.</strong> Avslutar ni efter
-        piloten får ni ut all er data och vi går skilda vägar.
-      </p>
-    </div>
-
-    <p class="pilot-foot">
-      Pris efter pilot sätts per kommun utifrån storlek och vilka delar ni använder,
-      och ligger under gränsen för direktupphandling (700 000 kr exkl. moms).
-      Vi räknar på er situation i samband med demon.
-    </p>
-  </div>
-</section>
-
-<!-- RESULTAT -->
-<section id="resultat">
-  <div class="container">
-    <span class="section-label">Resultat</span>
-    <h2>Vad det ger i praktiken</h2>
-    <div class="case-grid">
-      <div class="case">
-        <span class="case-tag">CvMatchen · kommunal arbetsmarknad</span>
-        <h3>Räkneexempel för en mellanstor kommun</h3>
-        <dl>
-          <dt>Utgångsläge</dt>
-          <dd>Cirka 2 timmar handläggartid per CV, spridda verktyg, manuell dokumentation av aktivitet.</dd>
-          <dt>Med plattformen</dt>
-          <dd>Cirka 15 minuter per CV, aktivitet och underlag loggas automatiskt medan deltagaren arbetar.</dd>
-          <dt>Räknat på 700 ärenden/år</dt>
-          <dd>Ungefär 875 000 kr per år i frigjord handläggartid — netto cirka 580 000 kr efter plattformskostnad.</dd>
-        </dl>
-        <div class="result"><strong>I drift nu.</strong> Prova själv på <a href="https://cvmatchen.com" target="_blank" rel="noopener">cvmatchen.com</a> — siffrorna för er kommun räknar vi fram tillsammans vid demon.</div>
-      </div>
-      <div class="case">
-        <span class="case-tag">Konsultuppdrag · tjänsteföretag, 5 anställda</span>
-        <h3>Halverad administrationstid</h3>
-        <dl>
-          <dt>Problem</dt>
-          <dd>Ledning och kundansvariga drunknade i inkommande mejl och ad hoc-prioriteringar.</dd>
-          <dt>Lösning</dt>
-          <dd>AI-genererad prioriterad arbetslista varje morgon, byggd på inkorg och kalender.</dd>
-        </dl>
-        <div class="result"><strong>−50 % administrationstid</strong> — tiden flyttades till fakturerbara kunduppdrag. PathfinderAI tar enstaka företagsuppdrag vid sidan av CvMatchen.</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -664,6 +732,13 @@
     <h2>Raka svar på det ni undrar</h2>
 
     <div class="faq-list">
+      <details class="faq-item">
+        <summary>Vad är PathfinderAI — konsult eller produktbolag?</summary>
+        <div class="faq-a">
+          <p>Bägge, med produkterna först. CvMatchen är live, en webshop byggs och Mythos står näst på tur. Mellan produktsläppen tar studion uppdrag åt företag — samma verktygslåda, riktad mot ert problem.</p>
+        </div>
+      </details>
+
       <details class="faq-item">
         <summary>Vad är CvMatchen, i en mening?</summary>
         <div class="faq-a">
@@ -677,7 +752,7 @@
           <p>Ärlig fråga, ärligt svar — och den viktigaste att ställa till en liten leverantör.</p>
           <p><strong>Ni äger er data och konfiguration</strong> och får full export på begäran. Det står i avtalet.</p>
           <p><strong>Kod och driftnycklar deponeras hos tredje part (escrow).</strong> Skulle något oförutsett hända kan en annan utvecklare ta över driften utan att ni behöver börja om.</p>
-          <p>Plattformen bygger på etablerade komponenter (Supabase, Vercel, AWS) utan proprietära format — ingen inlåsning.</p>
+          <p>Produkterna bygger på etablerade komponenter (Supabase, Vercel, AWS) utan proprietära format — ingen inlåsning.</p>
         </div>
       </details>
 
@@ -690,7 +765,7 @@
       </details>
 
       <details class="faq-item">
-        <summary>Hur snabbt kan vi komma igång?</summary>
+        <summary>Hur snabbt kan vår kommun komma igång med CvMatchen?</summary>
         <div class="faq-a">
           <p>Plattformen är i drift i dag. Uppsättning för er kommun tar 1–3 veckor, inklusive utbildning av personalen på plats. Därefter börjar den kostnadsfria tremånaderspiloten.</p>
         </div>
@@ -706,14 +781,7 @@
       <details class="faq-item">
         <summary>Vad händer om lösningen inte fungerar som utlovat?</summary>
         <div class="faq-a">
-          <p>Under piloten: ni avslutar utan kostnad och får ut er data. Efter piloten gäller 30 dagars garanti efter leverans — fel åtgärdas kostnadsfritt. Det står i <a href="villkor.html">villkoren</a>.</p>
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Kan plattformen anpassas till vår lokala arbetsmarknad?</summary>
-        <div class="faq-a">
-          <p>Ja — det är en del av uppsättningen. Lokala arbetsgivare och annonser, era egna insatser och er profil konfigureras per kommun.</p>
+          <p>Under pilot: ni avslutar utan kostnad och får ut er data. För uppdrag gäller 30 dagars garanti efter leverans — fel åtgärdas kostnadsfritt. Det står i <a href="villkor.html">villkoren</a>.</p>
         </div>
       </details>
     </div>
@@ -746,15 +814,15 @@
           i verksamheten.
         </p>
         <p>
-          Verktygen som finns inom arbetsmarknadsarbete är många — och spridda. CvMatchen är
-          mitt svar på hur ett samlat verktyg för målgruppen borde se ut: byggt av någon som
-          gjort jobbet, för dem som gör jobbet. Plattformen är ingen idéskiss — den är byggd,
-          lanserad och i drift.
+          CvMatchen föddes ur det arbetet: ett samlat verktyg byggt av någon som gjort jobbet,
+          för dem som gör jobbet. Att den är live och i drift är studions kvitto — och samma
+          arbetssätt driver nu webshopen och Mythos framåt: hitta ett verkligt problem,
+          bygg, lansera, förbättra.
         </p>
         <p>
           Att PathfinderAI är ett enmansbolag betyder en sak för er: ni pratar direkt med
-          personen som både byggt lösningen och använt den här typen av verktyg i verkligheten.
-          Inga säljled, inga juniorkonsulter — och raka besked när något inte lönar sig.
+          personen som bygger lösningarna. Inga säljled, inga juniorkonsulter — och raka
+          besked när något inte lönar sig.
         </p>
 
         <div class="principles">
@@ -784,16 +852,16 @@
 <section id="kontakt">
   <div class="container">
     <span class="section-label">Nästa steg</span>
-    <h2>Boka en demo</h2>
+    <h2>Hör av dig</h2>
     <p class="lede">
-      30 minuter, digitalt eller på plats i Öresundsregionen. Vi visar plattformen,
-      ni ställer frågorna och vi räknar på er kommuns situation. Kostnadsfritt och
-      utan förpliktelser.
+      Kommun som vill se CvMatchen? Företag med ett problem värt att lösa? Nyfiken på
+      webshopen eller Mythos? 30 minuter räcker för att veta om vi kan hjälpa — kostnadsfritt
+      och utan förpliktelser.
     </p>
 
     <div class="contact-grid">
       <div class="contact-cards">
-        <a href="mailto:hej@pathfinderai.se?subject=Boka%20demo%20%E2%80%94%20CvMatchen" class="contact-card">
+        <a href="mailto:hej@pathfinderai.se?subject=F%C3%B6rfr%C3%A5gan%20%E2%80%94%20PathfinderAI" class="contact-card">
           <span class="label">E-post</span>
           <span class="value">hej@pathfinderai.se</span>
           <span class="meta">Svar inom 24 timmar, ofta snabbare.</span>
@@ -835,11 +903,12 @@
             </div>
           </div>
           <div class="form-field">
-            <label for="cf-type">Typ av verksamhet</label>
+            <label for="cf-type">Vad gäller det?</label>
             <select id="cf-type" name="type">
               <option value="">Välj…</option>
-              <option value="kommun">Kommun / offentlig sektor</option>
-              <option value="foretag">Företag</option>
+              <option value="kommun">CvMatchen — kommun / offentlig sektor</option>
+              <option value="foretag">AI-uppdrag — företag</option>
+              <option value="produkt">Webshop / Mythos</option>
               <option value="annat">Annat</option>
             </select>
           </div>
@@ -864,9 +933,9 @@
   <div class="container footer-inner">
     <div>© 2026 PathfinderAI · Landskrona · <a href="mailto:hej@pathfinderai.se">hej@pathfinderai.se</a></div>
     <ul class="footer-links">
-      <li><a href="#plattformen">Plattformen</a></li>
-      <li><a href="#sakerhet">Säkerhet</a></li>
-      <li><a href="#pilot">Pilot &amp; pris</a></li>
+      <li><a href="#produkter">Produkter</a></li>
+      <li><a href="#kommuner">Kommuner</a></li>
+      <li><a href="#foretag">Företag</a></li>
       <li><a href="integritet.html">Integritetspolicy</a></li>
       <li><a href="villkor.html">Villkor</a></li>
     </ul>
@@ -900,7 +969,7 @@
       'Organisation: ' + (f.get('organization') || '—'),
       'E-post: ' + f.get('email'),
       'Telefon: ' + (f.get('phone') || '—'),
-      'Verksamhet: ' + (f.get('type') || '—'),
+      'Gäller: ' + (f.get('type') || '—'),
       '',
       f.get('message')
     ].join('\n');
