@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PathfinderAI — AI-studio i Landskrona · CvMatchen, webshop &amp; Mythos</title>
-<meta name="description" content="PathfinderAI är en AI-studio som bygger produkter som gör nytta: CvMatchen för kommuner och webshoppen är live, Mythos näst på tur. Vi tar även AI-uppdrag åt företag. EU-drift, GDPR, raka besked.">
+<title>PathfinderAI — AI-studio i Landskrona · CvMatchen &amp; företagslösningar</title>
+<meta name="description" content="PathfinderAI står på två ben: CvMatchen — plattformen som hjälper kommuner klara aktivitetskravet — och företagssidan, där vi bygger webshoppar, hemsidor och interna system med AI i kärnan. EU-drift, GDPR, raka besked.">
 <link rel="canonical" href="https://pathfinderai.se/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="PathfinderAI — AI-studio som bygger produkter som levererar">
-<meta property="og:description" content="CvMatchen och webshoppen live, Mythos näst på tur. AI-uppdrag åt företag. EU-drift och raka besked.">
+<meta property="og:title" content="PathfinderAI — CvMatchen för kommuner · Webshoppar, hemsidor &amp; system åt företag">
+<meta property="og:description" content="Två ben: CvMatchen live för kommuner, och företagslösningar — webshoppar, hemsidor, interna system. Byggt i Landskrona, drift i EU.">
 <meta property="og:url" content="https://pathfinderai.se/">
 <meta property="og:image" content="https://pathfinderai.se/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -16,7 +16,7 @@
 <meta property="og:locale" content="sv_SE">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PathfinderAI — AI-studio i Landskrona">
-<meta name="twitter:description" content="CvMatchen och webshoppen live, Mythos näst på tur. AI-uppdrag åt företag.">
+<meta name="twitter:description" content="CvMatchen för kommuner · Webshoppar, hemsidor &amp; interna system åt företag. Mythos näst på tur.">
 <meta name="twitter:image" content="https://pathfinderai.se/assets/og-image.png">
 <script type="application/ld+json">
 {
@@ -29,7 +29,7 @@
       "url": "https://pathfinderai.se/",
       "email": "hej@pathfinderai.se",
       "telephone": "+46766071757",
-      "description": "AI-studio i Landskrona som bygger egna produkter och tar AI-uppdrag åt företag och kommuner.",
+      "description": "AI-studio i Landskrona med två ben: produkten CvMatchen för kommuner samt företagslösningar — webshoppar, hemsidor och interna system.",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Landskrona",
@@ -59,22 +59,22 @@
 </script>
 <style>
   :root {
-    --bg: #fafaf7;
-    --surface: #ffffff;
-    --border: #e2e0d8;
-    --border-strong: #c9c6bb;
-    --text: #1f2c36;
-    --muted: #55636c;
-    --accent: #15577a;
-    --accent-dark: #0e405c;
-    --accent-2: #1a7a6d;
-    --accent-bg: #eef4f8;
-    --gold: #8a6d24;
-    --ok: #2e6b3f;
+    --bg: #0b0c0e;
+    --surface: #131519;
+    --surface-2: #1a1d22;
+    --border: #262930;
+    --border-strong: #363a43;
+    --text: #edece7;
+    --muted: #a3a29a;
+    --gold: #d4a437;
+    --gold-bright: #f0c04a;
+    --gold-deep: #9a7826;
+    --gold-bg: rgba(212, 164, 55, 0.08);
+    --gold-border: rgba(212, 164, 55, 0.28);
+    --ok: #6fbf85;
     --radius: 8px;
     --maxw: 1080px;
-    --grad: linear-gradient(100deg, var(--accent) 0%, var(--accent-2) 100%);
-    --grad-gold: linear-gradient(100deg, #8a6d24 0%, #c99a2e 55%, #e0b23c 100%);
+    --grad-gold: linear-gradient(100deg, #c99a2e 0%, #f0c04a 55%, #f7dd9b 100%);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -98,26 +98,19 @@
   h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 720; margin-bottom: 14px; }
   h3 { font-size: 1.15rem; font-weight: 650; }
 
-  a { color: var(--accent); text-underline-offset: 3px; }
-  a:hover { color: var(--accent-dark); }
+  a { color: var(--gold-bright); text-underline-offset: 3px; }
+  a:hover { color: #f7dd9b; }
 
-  .grad-text {
-    background: var(--grad);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
   .grad-gold-text {
     background: var(--grad-gold);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font-weight: 800;
   }
 
   .skip-link {
     position: absolute; left: -9999px; top: 0;
-    background: var(--accent); color: #fff; padding: 10px 16px; z-index: 100;
+    background: var(--gold); color: #131519; padding: 10px 16px; z-index: 100;
   }
   .skip-link:focus { left: 0; }
 
@@ -130,8 +123,8 @@
     position: absolute; left: 0; white-space: nowrap;
     font-weight: 800; letter-spacing: -0.02em;
     font-size: clamp(90px, 14vw, 190px);
-    color: #14314408;
-    -webkit-text-stroke: 1px #14314414;
+    color: rgba(212, 164, 55, 0.03);
+    -webkit-text-stroke: 1px rgba(212, 164, 55, 0.10);
     animation: drift 90s linear infinite;
   }
   .marquee-row.r2 { animation-duration: 120s; animation-direction: reverse; }
@@ -146,7 +139,7 @@
 
   /* ---------- Nav ---------- */
   header.site-header {
-    background: rgba(255,255,255,0.86);
+    background: rgba(11, 12, 14, 0.82);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     position: sticky; top: 0; z-index: 50;
@@ -158,7 +151,7 @@
   .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
   .logo svg { width: 30px; height: 30px; flex-shrink: 0; }
   .logo-name { font-weight: 750; font-size: 1.05rem; letter-spacing: -0.01em; }
-  .logo-name .ai { color: var(--gold); }
+  .logo-name .ai { color: var(--gold-bright); }
   .logo-sub { display: block; font-size: 0.72rem; color: var(--muted); letter-spacing: 0.02em; }
 
   .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
@@ -166,9 +159,9 @@
     display: block; padding: 8px 12px; font-size: 0.95rem;
     color: var(--text); text-decoration: none; border-radius: var(--radius);
   }
-  .nav-links a:hover { background: var(--accent-bg); color: var(--accent-dark); }
-  .nav-links a.nav-cta { background: var(--accent); color: #fff; font-weight: 600; margin-left: 6px; }
-  .nav-links a.nav-cta:hover { background: var(--accent-dark); color: #fff; }
+  .nav-links a:hover { background: var(--gold-bg); color: var(--gold-bright); }
+  .nav-links a.nav-cta { background: var(--gold); color: #131519; font-weight: 650; margin-left: 6px; }
+  .nav-links a.nav-cta:hover { background: var(--gold-bright); color: #131519; }
 
   .nav-toggle {
     display: none; background: none; border: 1px solid var(--border-strong);
@@ -193,76 +186,89 @@
   section + section { border-top: 1px solid var(--border); }
   .section-label {
     display: inline-block; font-size: 0.8rem; font-weight: 700;
-    text-transform: uppercase; letter-spacing: 0.09em; color: var(--accent);
+    text-transform: uppercase; letter-spacing: 0.09em; color: var(--gold);
     margin-bottom: 10px;
   }
   .lede { font-size: 1.12rem; color: var(--muted); max-width: 46em; }
 
   .btn {
     display: inline-block; padding: 12px 22px; border-radius: var(--radius);
-    font-size: 1rem; font-weight: 600; text-decoration: none; cursor: pointer;
+    font-size: 1rem; font-weight: 650; text-decoration: none; cursor: pointer;
     border: 1px solid transparent;
   }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: var(--accent-dark); color: #fff; }
-  .btn-secondary { background: var(--surface); color: var(--accent-dark); border-color: var(--border-strong); }
-  .btn-secondary:hover { border-color: var(--accent); }
+  .btn-primary { background: var(--gold); color: #131519; }
+  .btn-primary:hover { background: var(--gold-bright); color: #131519; }
+  .btn-secondary { background: transparent; color: var(--gold-bright); border-color: var(--border-strong); }
+  .btn-secondary:hover { border-color: var(--gold); }
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
   /* ---------- Hero ---------- */
   .hero {
-    background: var(--surface);
-    padding: 88px 0 72px;
+    padding: 92px 0 76px;
     overflow: hidden;
+    background:
+      radial-gradient(ellipse 70% 55% at 50% -10%, rgba(212, 164, 55, 0.10), transparent 70%),
+      var(--bg);
   }
   .hero .container { position: relative; z-index: 1; }
   .hero .badge {
-    display: inline-block; background: var(--accent-bg); color: var(--accent-dark);
-    border: 1px solid #cddee9; border-radius: 999px;
+    display: inline-block; background: var(--gold-bg); color: var(--gold-bright);
+    border: 1px solid var(--gold-border); border-radius: 999px;
     font-size: 0.85rem; font-weight: 600; padding: 4px 14px; margin-bottom: 20px;
   }
-  .hero h1 { max-width: 20em; margin-bottom: 18px; }
+  .hero h1 { max-width: 21em; margin-bottom: 18px; }
   .hero .lede { margin-bottom: 30px; }
   .hero-facts {
     display: flex; flex-wrap: wrap; gap: 10px 34px;
     margin-top: 38px; padding-top: 24px; border-top: 1px solid var(--border);
     font-size: 0.95rem; color: var(--muted);
   }
-  .hero-facts strong { color: var(--text); font-weight: 700; }
+  .hero-facts strong { color: var(--gold-bright); font-weight: 700; }
 
-  /* ---------- Products ---------- */
-  .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
-  @media (max-width: 900px) { .product-grid { grid-template-columns: 1fr; } }
-  .product {
+  /* ---------- Två ben ---------- */
+  .leg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
+  @media (max-width: 860px) { .leg-grid { grid-template-columns: 1fr; } }
+  .leg {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 26px; display: flex; flex-direction: column; gap: 12px; position: relative;
+    padding: 30px; display: flex; flex-direction: column; gap: 14px;
   }
-  .product.flagship {
-    border-color: #d8c89a;
-    background: linear-gradient(160deg, #fffdf6 0%, #ffffff 55%);
-    box-shadow: 0 1px 0 #d8c89a, 0 14px 36px -24px rgba(184,144,47,0.45);
+  .leg.gold {
+    border-color: var(--gold-border);
+    background: linear-gradient(160deg, rgba(212,164,55,0.07) 0%, var(--surface) 60%);
+  }
+  .leg-kicker { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .leg h3 { font-size: 1.5rem; letter-spacing: -0.015em; }
+  .leg p { font-size: 0.98rem; color: var(--muted); flex-grow: 1; }
+  .leg .taglist { display: flex; flex-wrap: wrap; gap: 8px; }
+  .leg .taglist span {
+    font-size: 0.83rem; font-weight: 600; color: var(--text);
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: 999px; padding: 4px 12px;
   }
   .status {
     align-self: flex-start; font-size: 0.75rem; font-weight: 700;
     text-transform: uppercase; letter-spacing: 0.07em;
     padding: 3px 10px; border-radius: 999px; border: 1px solid;
   }
-  .status.live { color: var(--ok); border-color: #bcd8c3; background: #eef6f0; }
-  .status.build { color: var(--accent-dark); border-color: #cddee9; background: var(--accent-bg); }
-  .status.next { color: var(--gold); border-color: #ddd0a8; background: #faf6ea; }
-  .product h3 { font-size: 1.3rem; letter-spacing: -0.015em; }
-  .product p { font-size: 0.96rem; color: var(--muted); flex-grow: 1; }
-  .product .plink { font-size: 0.95rem; font-weight: 600; }
+  .status.live { color: var(--ok); border-color: rgba(111,191,133,0.35); background: rgba(111,191,133,0.08); }
 
-  /* ---------- Two-track (kommun / företag) ---------- */
+  .mythos-strip {
+    margin-top: 18px; padding: 16px 22px;
+    background: var(--surface); border: 1px dashed var(--border-strong); border-radius: var(--radius);
+    font-size: 0.95rem; color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: baseline;
+  }
+  .mythos-strip strong { color: var(--gold-bright); font-weight: 700; }
+
+  /* ---------- Kommun / law ---------- */
   .law-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
   @media (max-width: 780px) { .law-grid { grid-template-columns: 1fr; } }
   .law-points { list-style: none; display: grid; gap: 14px; }
   .law-points li {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 16px 18px; font-size: 0.98rem;
+    padding: 16px 18px; font-size: 0.98rem; color: var(--muted);
   }
-  .law-points strong { display: block; margin-bottom: 2px; }
+  .law-points strong { display: block; margin-bottom: 2px; color: var(--text); }
 
   .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
   @media (max-width: 900px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -275,31 +281,37 @@
   .feature p { font-size: 0.94rem; color: var(--muted); }
   .tag-soon {
     display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em;
-    color: var(--gold); border: 1px solid #d8c89a; border-radius: 4px;
+    color: var(--gold-bright); border: 1px solid var(--gold-border); border-radius: 4px;
     padding: 1px 7px; margin-left: 6px; vertical-align: 2px; text-transform: uppercase;
   }
 
   .video-frame {
-    margin-top: 26px; background: var(--surface); border: 1px solid var(--border);
+    margin-top: 26px; background: var(--surface); border: 1px solid var(--gold-border);
     border-radius: var(--radius); padding: 10px;
   }
   .video-frame video { display: block; width: 100%; border-radius: 5px; background: #000; }
 
   /* ---------- Företag ---------- */
-  .biz-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 36px; align-items: start; margin-top: 8px; }
-  @media (max-width: 860px) { .biz-grid { grid-template-columns: 1fr; } }
-  .biz-list { list-style: none; display: grid; gap: 12px; margin-top: 20px; }
-  .biz-list li {
+  .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 26px; }
+  @media (max-width: 720px) { .service-grid { grid-template-columns: 1fr; } }
+  .service {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
-    padding: 14px 18px; font-size: 0.96rem;
+    padding: 22px;
   }
-  .biz-list strong { display: block; }
-  .biz-list span { color: var(--muted); font-size: 0.93rem; }
+  .service h3 { margin-bottom: 6px; font-size: 1.05rem; }
+  .service p { font-size: 0.94rem; color: var(--muted); }
+  .service .badge-live {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em;
+    color: var(--ok); border: 1px solid rgba(111,191,133,0.35); background: rgba(111,191,133,0.08);
+    border-radius: 4px; padding: 1px 8px; margin-left: 6px; vertical-align: 2px; text-transform: uppercase;
+  }
+  .biz-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start; margin-top: 8px; }
+  @media (max-width: 860px) { .biz-grid { grid-template-columns: 1fr; } }
   .case {
     background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
     padding: 24px;
   }
-  .case .case-tag { font-size: 0.78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+  .case .case-tag { font-size: 0.78rem; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; }
   .case h3 { margin: 8px 0 14px; }
   .case dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font-size: 0.94rem; }
   .case dt { font-weight: 650; }
@@ -319,7 +331,7 @@
     content: counter(step);
     display: inline-flex; align-items: center; justify-content: center;
     width: 30px; height: 30px; border-radius: 50%;
-    background: var(--grad); color: #fff;
+    background: var(--grad-gold); color: #131519;
     font-weight: 700; font-size: 0.95rem; margin-bottom: 12px;
   }
   .steps h3 { font-size: 1rem; margin-bottom: 6px; }
@@ -340,11 +352,11 @@
 
   /* ---------- Pilot ---------- */
   .pilot-box {
-    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent);
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--gold);
     border-radius: var(--radius); padding: 26px 28px; margin-top: 22px;
   }
   .pilot-box ul { margin: 12px 0 0 20px; }
-  .pilot-box li { margin-bottom: 6px; font-size: 0.97rem; }
+  .pilot-box li { margin-bottom: 6px; font-size: 0.97rem; color: var(--muted); }
   .pilot-foot { margin-top: 18px; font-size: 0.95rem; color: var(--muted); max-width: 52em; }
 
   /* ---------- FAQ ---------- */
@@ -355,7 +367,7 @@
     list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px;
   }
   .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: "+"; font-size: 1.3rem; color: var(--accent); font-weight: 400; }
+  .faq-item summary::after { content: "+"; font-size: 1.3rem; color: var(--gold); font-weight: 400; }
   .faq-item[open] summary::after { content: "–"; }
   .faq-item .faq-a { padding: 0 18px 18px; color: var(--muted); font-size: 0.96rem; }
   .faq-item .faq-a p + p { margin-top: 10px; }
@@ -363,18 +375,20 @@
   /* ---------- About ---------- */
   .about-grid { display: grid; grid-template-columns: 260px 1fr; gap: 36px; align-items: start; margin-top: 24px; }
   @media (max-width: 780px) { .about-grid { grid-template-columns: 1fr; } }
-  .portrait { width: 100%; max-width: 260px; border-radius: var(--radius); border: 1px solid var(--border); display: block; }
+  .portrait { width: 100%; max-width: 260px; border-radius: var(--radius); border: 1px solid var(--gold-border); display: block; }
   .portrait-meta { margin-top: 10px; }
   .portrait-meta .name { font-weight: 700; }
   .portrait-meta .role { font-size: 0.9rem; color: var(--muted); }
   .about-body p + p { margin-top: 12px; }
+  .about-body p { color: var(--muted); }
+  .about-body strong { color: var(--text); }
   .principles { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
   @media (max-width: 580px) { .principles { grid-template-columns: 1fr; } }
   .principle {
     border: 1px solid var(--border); border-radius: var(--radius);
     background: var(--surface); padding: 14px 16px; font-size: 0.93rem;
   }
-  .principle h4 { font-size: 0.97rem; margin-bottom: 3px; }
+  .principle h4 { font-size: 0.97rem; margin-bottom: 3px; color: var(--gold-bright); }
   .principle p { color: var(--muted); }
 
   /* ---------- Contact ---------- */
@@ -385,8 +399,8 @@
     display: block; background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 16px 18px; text-decoration: none; color: var(--text);
   }
-  a.contact-card:hover { border-color: var(--accent); }
-  .contact-card .label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+  a.contact-card:hover { border-color: var(--gold); }
+  .contact-card .label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); }
   .contact-card .value { font-weight: 650; margin: 2px 0; }
   .contact-card .meta { font-size: 0.88rem; color: var(--muted); }
 
@@ -397,20 +411,20 @@
   @media (max-width: 580px) { .form-row { grid-template-columns: 1fr; } }
   .form-field { margin-bottom: 14px; }
   .form-field label { display: block; font-size: 0.88rem; font-weight: 650; margin-bottom: 5px; }
-  .form-field .req { color: #a4392e; }
+  .form-field .req { color: #e08a7e; }
   .form-field input, .form-field select, .form-field textarea {
     width: 100%; padding: 10px 12px; font: inherit; font-size: 0.97rem;
     border: 1px solid var(--border-strong); border-radius: var(--radius);
-    background: #fff; color: var(--text);
+    background: var(--surface-2); color: var(--text);
   }
   .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
-    outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent);
+    outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold);
   }
   .form-field textarea { min-height: 120px; resize: vertical; }
   .form-note { font-size: 0.83rem; color: var(--muted); margin-top: 12px; }
   .form-success {
     display: none; margin-top: 14px; padding: 12px 16px; border-radius: var(--radius);
-    background: #eaf3ec; border: 1px solid #bcd8c3; color: var(--ok); font-size: 0.93rem;
+    background: rgba(111,191,133,0.08); border: 1px solid rgba(111,191,133,0.35); color: var(--ok); font-size: 0.93rem;
   }
   .form-success.visible { display: block; }
 
@@ -418,14 +432,13 @@
   footer {
     border-top: 1px solid var(--border); background: var(--surface);
     padding: 34px 0; font-size: 0.9rem; color: var(--muted);
-    position: relative; overflow: hidden;
   }
-  .footer-inner { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  .footer-inner { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; justify-content: space-between; }
   .footer-links { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 20px; }
   .footer-links a { color: var(--muted); text-decoration: none; }
-  .footer-links a:hover { color: var(--accent-dark); text-decoration: underline; }
+  .footer-links a:hover { color: var(--gold-bright); text-decoration: underline; }
 
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 </style>
 </head>
 <body>
@@ -436,13 +449,20 @@
   <div class="container nav-inner">
     <a href="#main" class="logo" aria-label="PathfinderAI — till toppen">
       <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
-        <circle cx="16" cy="16" r="14" stroke="#8a6d24" stroke-width="1.5"/>
-        <line x1="16" y1="2" x2="16" y2="5" stroke="#8a6d24" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="16" y1="27" x2="16" y2="30" stroke="#8a6d24" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="2" y1="16" x2="5" y2="16" stroke="#8a6d24" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="27" y1="16" x2="30" y2="16" stroke="#8a6d24" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M16 6 L19 16 L16 14 L13 16 Z" fill="#8a6d24"/>
-        <path d="M16 26 L13 16 L16 18 L19 16 Z" fill="#8a6d24" opacity="0.45"/>
+        <defs>
+          <linearGradient id="compassGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#c99a2e"/>
+            <stop offset="55%" stop-color="#f0c04a"/>
+            <stop offset="100%" stop-color="#f7dd9b"/>
+          </linearGradient>
+        </defs>
+        <circle cx="16" cy="16" r="14" stroke="url(#compassGold)" stroke-width="1.5"/>
+        <line x1="16" y1="2" x2="16" y2="5" stroke="url(#compassGold)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="16" y1="27" x2="16" y2="30" stroke="url(#compassGold)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="2" y1="16" x2="5" y2="16" stroke="url(#compassGold)" stroke-width="1.5" stroke-linecap="round"/>
+        <line x1="27" y1="16" x2="30" y2="16" stroke="url(#compassGold)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M16 6 L19 16 L16 14 L13 16 Z" fill="url(#compassGold)"/>
+        <path d="M16 26 L13 16 L16 18 L19 16 Z" fill="url(#compassGold)" opacity="0.45"/>
       </svg>
       <span>
         <span class="logo-name">Pathfinder<span class="ai">AI</span></span>
@@ -451,8 +471,8 @@
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="navLinks">Meny</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#produkter">Produkter</a></li>
-      <li><a href="#kommuner">Kommuner</a></li>
+      <li><a href="#ben">Två ben</a></li>
+      <li><a href="#kommuner">CvMatchen</a></li>
       <li><a href="#foretag">Företag</a></li>
       <li><a href="#sakerhet">Säkerhet</a></li>
       <li><a href="#om">Om</a></li>
@@ -467,42 +487,43 @@
 <section class="hero">
   <div class="marquee" aria-hidden="true">
     <div class="marquee-row" style="top: 8%;">
-      <span>CvMatchen&nbsp;·&nbsp;Webshop&nbsp;·&nbsp;Mythos&nbsp;·&nbsp;AI som gör nytta&nbsp;·&nbsp;CvMatchen&nbsp;·&nbsp;Webshop&nbsp;·&nbsp;Mythos&nbsp;·&nbsp;AI som gör nytta&nbsp;·&nbsp;</span>
+      <span>CvMatchen&nbsp;·&nbsp;Webshoppar&nbsp;·&nbsp;Hemsidor&nbsp;·&nbsp;Interna system&nbsp;·&nbsp;CvMatchen&nbsp;·&nbsp;Webshoppar&nbsp;·&nbsp;Hemsidor&nbsp;·&nbsp;Interna system&nbsp;·&nbsp;</span>
     </div>
     <div class="marquee-row r2" style="bottom: 4%;">
-      <span>Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;</span>
+      <span>Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;Mythos näst på tur&nbsp;·&nbsp;Byggt i Landskrona&nbsp;·&nbsp;Drift i EU&nbsp;·&nbsp;Mythos näst på tur&nbsp;·&nbsp;</span>
     </div>
   </div>
   <div class="container">
     <span class="badge">AI-studio · Landskrona</span>
-    <h1>Vi bygger AI-produkter som <span class="grad-text">gör nytta på riktigt</span>.</h1>
+    <h1>Ett bolag. Två ben. <span class="grad-gold-text">AI som gör nytta på riktigt.</span></h1>
     <p class="lede">
-      PathfinderAI är en produktstudio. CvMatchen hjälper kommuner att klara aktivitetskravet
-      — live och i drift. Nästa produkter är på väg ur verkstaden, och däremellan tar vi
-      AI-uppdrag åt företag som vill ha resultat, inte buzzwords.
+      PathfinderAI står på två ben: <strong style="color: var(--text);">CvMatchen</strong> —
+      plattformen som hjälper kommuner att klara aktivitetskravet — och
+      <strong style="color: var(--text);">företagssidan</strong>, där vi bygger webshoppar,
+      hemsidor och interna system med AI i kärnan. Bägge med samma löfte: mätbar nytta,
+      EU-drift och raka besked.
     </p>
     <div class="cta-row">
-      <a href="#produkter" class="btn btn-primary">Se produkterna</a>
+      <a href="#ben" class="btn btn-primary">Se vad vi gör</a>
       <a href="#kontakt" class="btn btn-secondary">Boka ett samtal</a>
     </div>
     <div class="hero-facts">
-      <span><strong>2 produkter live</strong> · Mythos näst på tur</span>
+      <span><strong>CvMatchen live</strong> — 3 mån kostnadsfri pilot för kommuner</span>
+      <span><strong>Webshoppar &amp; system</strong> åt företag</span>
       <span><strong>All data i EU</strong> (Frankfurt)</span>
-      <span><strong>2 h → 15 min</strong> handläggartid per CV</span>
       <span><strong>Inga mellanled</strong> — du pratar med grundaren</span>
     </div>
   </div>
 </section>
 
-<!-- PRODUKTER -->
-<section id="produkter">
+<!-- TVÅ BEN -->
+<section id="ben">
   <div class="container">
-    <span class="section-label">Produkter</span>
-    <h2>Studions portfölj</h2>
-    <p class="lede">Egna produkter, byggda och driftade av oss. Två live, en på väg.</p>
+    <span class="section-label">Två ben</span>
+    <h2>Det här gör vi</h2>
 
-    <div class="product-grid">
-      <div class="product flagship">
+    <div class="leg-grid">
+      <div class="leg gold">
         <span class="status live">Live</span>
         <h3><span class="grad-gold-text">CvMatchen</span></h3>
         <p>
@@ -510,44 +531,47 @@
           från Platsbanken och dokumentationen skriver sig själv medan deltagaren jobbar.
           Kommunerna klarar aktivitetskravet — handläggarna klarar dagen.
         </p>
-        <a class="plink" href="#kommuner">Läs mer om CvMatchen ↓</a>
+        <div class="taglist">
+          <span>Kommuner</span><span>Aktivitetskravet</span><span>3 mån gratis pilot</span>
+        </div>
+        <a class="btn btn-primary" href="#kommuner" style="align-self: flex-start;">Läs mer om CvMatchen</a>
       </div>
-      <div class="product">
-        <span class="status live">Live</span>
-        <h3>Webshop</h3>
+
+      <div class="leg">
+        <span class="status live">I full gång</span>
+        <h3>Företagslösningar</h3>
         <p>
-          En e-handelslösning med AI i kärnan — byggd med samma principer som CvMatchen:
-          enkel att använda, EU-drift och mätbar nytta. Nu lanserad och i drift.
+          Vi bygger det era kunder möter och det er personal jobbar i: webshoppar,
+          hemsidor och interna system — med AI där det gör skillnad, inte som dekoration.
+          Senaste leveransen: en AI-driven webshop, live nu.
         </p>
-        <a class="plink" href="#kontakt">Vill du veta mer? Hör av dig →</a>
+        <div class="taglist">
+          <span>Webshoppar</span><span>Hemsidor</span><span>Interna system</span><span>AI-automatisering</span>
+        </div>
+        <a class="btn btn-secondary" href="#foretag" style="align-self: flex-start;">Läs mer om företagssidan</a>
       </div>
-      <div class="product">
-        <span class="status next">Näst på tur</span>
-        <h3>Mythos</h3>
-        <p>
-          Studions nästa produkt. Vi berättar mer när den närmar sig —
-          men riktningen är densamma: AI som löser ett verkligt problem,
-          utan krångel och utan inlåsning.
-        </p>
-        <a class="plink" href="#kontakt">Följ utvecklingen →</a>
-      </div>
+    </div>
+
+    <div class="mythos-strip">
+      <strong>Näst ur verkstaden: Mythos.</strong>
+      <span>Studions nästa produkt — mer om den när den närmar sig. Riktningen är densamma: AI som löser ett verkligt problem, utan krångel och utan inlåsning.</span>
     </div>
   </div>
 </section>
 
-<!-- KOMMUNER / CVMATCHEN -->
+<!-- CVMATCHEN / KOMMUNER -->
 <section id="kommuner">
   <div class="container">
-    <span class="section-label">För kommuner</span>
+    <span class="section-label">Ben 1 · För kommuner</span>
     <h2><span class="grad-gold-text">CvMatchen</span> möter aktivitetskravet. På riktigt.</h2>
     <div class="law-grid" style="margin-top: 18px;">
       <div>
-        <p>
+        <p style="color: var(--muted);">
           Sedan den 1 juli 2026 ska kommuner erbjuda personer med försörjningsstöd
           aktiviteter på heltid — och kunna visa att det sker. Fler möten, mer uppföljning
           och en lavin av dokumentation. Med samma antal handläggare som innan.
         </p>
-        <p style="margin-top: 12px;">
+        <p style="margin-top: 12px; color: var(--muted);">
           CvMatchen vänder på det: deltagaren bygger CV, söker jobb och gör övningar i
           plattformen — och varje minut loggas automatiskt. Underlaget skriver sig självt
           medan arbetet pågår. Handläggaren gör det en människa behövs för.
@@ -598,7 +622,7 @@
       Eller prova direkt på <a href="https://cvmatchen.com" target="_blank" rel="noopener">cvmatchen.com</a>.
     </p>
 
-    <div class="pilot-box" style="border-left-color: #c99a2e;">
+    <div class="pilot-box">
       <strong>Tre månader utan kostnad — sedan bestämmer ni.</strong>
       <ul>
         <li>Obegränsat antal användare, uppsättning, utbildning på plats och support (svar inom en arbetsdag)</li>
@@ -622,24 +646,44 @@
 <!-- FÖRETAG -->
 <section id="foretag">
   <div class="container">
-    <span class="section-label">För företag</span>
-    <h2>AI-uppdrag som betalar sig</h2>
-    <div class="biz-grid">
+    <span class="section-label">Ben 2 · För företag</span>
+    <h2>Digitala lösningar som betalar sig</h2>
+    <p class="lede">
+      Samma verktygslåda som bygger CvMatchen, riktad mot ert företag. Vi bygger, driftar
+      och förbättrar — ni äger resultatet när det är levererat och betalt.
+    </p>
+
+    <div class="service-grid">
+      <div class="service">
+        <h3>Webshoppar <span class="badge-live">Senast levererad: live nu</span></h3>
+        <p>E-handel med AI i kärnan — produkttexter, rekommendationer och administration som sköter sig själv. Byggd för att sälja, inte bara finnas.</p>
+      </div>
+      <div class="service">
+        <h3>Hemsidor</h3>
+        <p>Snabba, sökmotorvänliga och lätta att underhålla. Inga sidbyggartunga kolosser — sidor som laddar direkt och säger rätt saker.</p>
+      </div>
+      <div class="service">
+        <h3>Interna system</h3>
+        <p>Verktygen er personal faktiskt behöver: ärendehantering, planering, uppföljning — skräddarsytt efter era flöden i stället för tvärtom.</p>
+      </div>
+      <div class="service">
+        <h3>AI-automatisering</h3>
+        <p>Mejlflöden, prioritering, sammanställningar — det som äter timmar varje vecka. AI in i era befintliga system i stället för att byta ut dem.</p>
+      </div>
+    </div>
+
+    <div class="biz-grid" style="margin-top: 26px;">
       <div>
-        <p class="lede">
-          Mellan produktsläppen tar studion uppdrag åt företag som vill använda AI där
-          det faktiskt lönar sig — automatisera det tråkiga, inte ersätta det viktiga.
-          Samma verktygslåda som bygger våra produkter, riktad mot ert problem.
+        <p style="color: var(--muted);">
+          Varje uppdrag börjar med en <strong style="color: var(--text);">kostnadsfri verksamhetsanalys</strong>.
+          Är AI eller ett nybygge fel svar på ert problem säger vi det — hellre ett kort
+          ärligt möte än ett långt dyrt projekt. Leverans mot avtalade milstolpar,
+          30 dagars garanti efter leverans, och ni äger koden när allt är betalt.
+          Det står i <a href="villkor.html">villkoren</a>.
         </p>
-        <ul class="biz-list">
-          <li><strong>Automatisera administration</strong><span>Mejlflöden, prioritering, sammanställningar — det som äter timmar varje vecka.</span></li>
-          <li><strong>AI in i era befintliga system</strong><span>Vi kopplar AI mot verktygen ni redan har i stället för att byta ut dem.</span></li>
-          <li><strong>Skräddarsydda lösningar</strong><span>Från idé till driftsatt lösning — ni äger resultatet när det är levererat och betalt.</span></li>
-        </ul>
-        <p style="margin-top: 20px; font-size: 0.95rem; color: var(--muted);">
-          Varje uppdrag börjar med en kostnadsfri verksamhetsanalys. Är AI fel svar på ert
-          problem säger vi det — hellre ett kort ärligt möte än ett långt dyrt projekt.
-        </p>
+        <div class="cta-row" style="margin-top: 22px;">
+          <a href="#kontakt" class="btn btn-primary">Boka verksamhetsanalys</a>
+        </div>
       </div>
       <div class="case">
         <span class="case-tag">Case · tjänsteföretag, 5 anställda</span>
@@ -689,7 +733,7 @@
   <div class="container">
     <span class="section-label">Säkerhet &amp; GDPR</span>
     <h2>Det era jurister och IT kommer att fråga om</h2>
-    <p class="lede">Grundkraven — redovisade rakt av, med nuvarande status. Gäller studions produkter, med CvMatchen som exempel.</p>
+    <p class="lede">Grundkraven — redovisade rakt av, med nuvarande status. Gäller allt vi bygger, med CvMatchen som exempel.</p>
 
     <table class="sec-table">
       <tbody>
@@ -746,7 +790,7 @@
       <details class="faq-item">
         <summary>Vad är PathfinderAI — konsult eller produktbolag?</summary>
         <div class="faq-a">
-          <p>Bägge, med produkterna först. CvMatchen och webshopen är live, och Mythos står näst på tur. Mellan produktsläppen tar studion uppdrag åt företag — samma verktygslåda, riktad mot ert problem.</p>
+          <p>Bägge — det är de två benen. CvMatchen är vår egen produkt, live för kommuner. Företagssidan bygger webshoppar, hemsidor och interna system åt kunder. Näst ur verkstaden: Mythos.</p>
         </div>
       </details>
 
@@ -758,12 +802,19 @@
       </details>
 
       <details class="faq-item">
+        <summary>Vem äger koden i ett företagsuppdrag?</summary>
+        <div class="faq-a">
+          <p><strong>Ni gör det.</strong> När uppdraget är slutfört och betalt övergår alla rättigheter till levererad kod, dokumentation och konfiguration till er. Det står i <a href="villkor.html">villkoren</a> — inte bara i säljsnacket.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
         <summary>Ni är ett enmansbolag. Vad händer om grundaren blir sjuk eller försvinner?</summary>
         <div class="faq-a">
           <p>Ärlig fråga, ärligt svar — och den viktigaste att ställa till en liten leverantör.</p>
           <p><strong>Ni äger er data och konfiguration</strong> och får full export på begäran. Det står i avtalet.</p>
           <p><strong>Kod och driftnycklar deponeras hos tredje part (escrow).</strong> Skulle något oförutsett hända kan en annan utvecklare ta över driften utan att ni behöver börja om.</p>
-          <p>Produkterna bygger på etablerade komponenter (Supabase, Vercel, AWS) utan proprietära format — ingen inlåsning.</p>
+          <p>Allt bygger på etablerade komponenter (Supabase, Vercel, AWS) utan proprietära format — ingen inlåsning.</p>
         </div>
       </details>
 
@@ -825,10 +876,10 @@
           i verksamheten.
         </p>
         <p>
-          CvMatchen föddes ur det arbetet: ett samlat verktyg byggt av någon som gjort jobbet,
-          för dem som gör jobbet. Att både den och webshopen är live är studions kvitto —
-          och samma arbetssätt driver nu Mythos framåt: hitta ett verkligt problem,
-          bygg, lansera, förbättra.
+          <strong>CvMatchen</strong> föddes ur det arbetet: ett samlat verktyg byggt av någon
+          som gjort jobbet, för dem som gör jobbet. <strong>Företagssidan</strong> använder
+          samma arbetssätt åt andra hållet — hitta det verkliga problemet, bygg, lansera,
+          förbättra. Senaste kvittot: en AI-driven webshop, live nu.
         </p>
         <p>
           Att PathfinderAI är ett enmansbolag betyder en sak för er: ni pratar direkt med
@@ -846,8 +897,8 @@
             <p>Sparade kronor och frigjord tid — annars är det en leksak.</p>
           </div>
           <div class="principle">
-            <h4>Ni äger er data</h4>
-            <p>Full export på begäran, escrow för kontinuitet, ingen inlåsning.</p>
+            <h4>Ni äger resultatet</h4>
+            <p>Er data, er kod när uppdraget är betalt. Escrow för kontinuitet. Ingen inlåsning.</p>
           </div>
           <div class="principle">
             <h4>Ärligt om gränserna</h4>
@@ -865,9 +916,9 @@
     <span class="section-label">Nästa steg</span>
     <h2>Hör av dig</h2>
     <p class="lede">
-      Kommun som vill se CvMatchen? Företag med ett problem värt att lösa? Nyfiken på
-      webshopen eller Mythos? 30 minuter räcker för att veta om vi kan hjälpa — kostnadsfritt
-      och utan förpliktelser.
+      Kommun som vill se CvMatchen? Företag som behöver webshop, hemsida eller ett internt
+      system? 30 minuter räcker för att veta om vi kan hjälpa — kostnadsfritt och utan
+      förpliktelser.
     </p>
 
     <div class="contact-grid">
@@ -918,8 +969,8 @@
             <select id="cf-type" name="type">
               <option value="">Välj…</option>
               <option value="kommun">CvMatchen — kommun / offentlig sektor</option>
-              <option value="foretag">AI-uppdrag — företag</option>
-              <option value="produkt">Webshop / Mythos</option>
+              <option value="webshop">Webshop / hemsida</option>
+              <option value="system">Internt system / AI-automatisering</option>
               <option value="annat">Annat</option>
             </select>
           </div>
@@ -944,9 +995,9 @@
   <div class="container footer-inner">
     <div>© 2026 PathfinderAI · Landskrona · <a href="mailto:hej@pathfinderai.se">hej@pathfinderai.se</a></div>
     <ul class="footer-links">
-      <li><a href="#produkter">Produkter</a></li>
-      <li><a href="#kommuner">Kommuner</a></li>
+      <li><a href="#kommuner">CvMatchen</a></li>
       <li><a href="#foretag">Företag</a></li>
+      <li><a href="#sakerhet">Säkerhet</a></li>
       <li><a href="integritet.html">Integritetspolicy</a></li>
       <li><a href="villkor.html">Villkor</a></li>
     </ul>
