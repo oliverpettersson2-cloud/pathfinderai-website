@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PathfinderAI — AI som löser problem på riktigt</title>
-<meta name="description" content="PathfinderAI bygger AI som löser problem, frigör personal och sparar pengar. På riktigt. För företag och kommuner.">
+<title>PathfinderAI — Hemsidor, webshoppar och CRM-system med AI</title>
+<meta name="description" content="PathfinderAI bygger hemsidor, webshoppar och CRM-system med AI i kärnan — åt företag och kreatörer i Skåne och hela Sverige. Från idé till drift. Inget skitsnack.">
 
 <!-- Favicon — kompass-logon i guld -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23d4a437'/%3E%3Cstop offset='50%25' stop-color='%23f5c842'/%3E%3Cstop offset='100%25' stop-color='%23fde68a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='url(%23g)' stroke-width='1.5'/%3E%3Cline x1='16' y1='3' x2='16' y2='5.5' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='26.5' x2='16' y2='29' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='3' y1='16' x2='5.5' y2='16' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='26.5' y1='16' x2='29' y2='16' stroke='url(%23g)' stroke-width='1.5' stroke-linecap='round'/%3E%3Cpath d='M16 7 L19 16 L16 14 L13 16 Z' fill='url(%23g)'/%3E%3Cpath d='M16 25 L13 16 L16 18 L19 16 Z' fill='url(%23g)' opacity='0.4'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%230a0a0b' stroke='url(%23g)' stroke-width='1'/%3E%3C/svg%3E">
@@ -795,6 +795,7 @@
   }
 
   /* Segment use-case grid */
+  .usecases.usecases-2 { grid-template-columns: repeat(2, 1fr); }
   .usecases {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -2614,7 +2615,7 @@
     .hero { padding: 120px 0 60px; }
     section.content, .manifesto, .final-cta { padding: 80px 0; }
     .segment-header { grid-template-columns: 1fr; gap: 24px; align-items: start; }
-    .usecases { grid-template-columns: 1fr; }
+    .usecases, .usecases.usecases-2 { grid-template-columns: 1fr; }
     .step-number { font-size: 3rem; }
     .quote-card { width: 280px; padding: 24px 22px; }
     .quote-card .q { font-size: 1.05rem; }
@@ -2749,17 +2750,16 @@
       </div>
       <div class="logo-stack">
         <span class="logo-name"><span class="pf">Pathfinder</span><span class="ai">AI</span></span>
-        <span class="logo-sub">AI-strategi &amp; lösningar</span>
+        <span class="logo-sub">Webb · E-handel · CRM</span>
       </div>
     </a>
     <ul class="nav-links">
       <li><a href="#hem">Hem</a></li>
-      <li><a href="#kommuner">Kommuner</a></li>
-      <li><a href="#foretag">Företag</a></li>
+      <li><a href="#tjanster">Tjänster</a></li>
       <li><a href="#cases">Case</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#om">Om oss</a></li>
-      <li><a href="#kontakt" class="nav-cta">Boka analys</a></li>
+      <li><a href="#kontakt" class="nav-cta">Boka samtal</a></li>
     </ul>
   </div>
 </nav>
@@ -2768,15 +2768,15 @@
 <section class="hero" id="hem">
   <div class="container">
     <h1>
-      <span class="line line-1"><span class="brand-mark"><span class="pf">Pathfinder</span><span class="ai">AI</span></span> löser era problem<span class="punct">.</span></span>
-      <span class="line line-2">Frigör personal<span class="punct">.</span></span>
+      <span class="line line-1"><span class="brand-mark"><span class="pf">Pathfinder</span><span class="ai">AI</span></span> bygger hemsidor<span class="punct">.</span></span>
+      <span class="line line-2">Webshoppar &amp; CRM<span class="punct">.</span></span>
       <span class="line line-3">Förverkligar idéer<span class="punct">.</span></span>
       <span class="line line-4">På riktigt<span class="punct">.</span></span>
     </h1>
 
     <p class="hero-sub">
       <span class="lede">Vi börjar med en idé och slutar med en lösning. <em>Inget skitsnack!</em></span>
-      <span class="detail closing">Kontakta <strong class="brand-inline"><span class="pf">Pathfinder</span><span class="ai">AI</span></strong> för att se hur just er verksamhet kan dra nytta av AI.</span>
+      <span class="detail closing">Kontakta <strong class="brand-inline"><span class="pf">Pathfinder</span><span class="ai">AI</span></strong> så tar vi er från idé till färdig lösning — med AI där det gör skillnad.</span>
     </p>
 
     <div class="cta-row">
@@ -2793,152 +2793,48 @@
 
 <!-- Scroll cue -->
 <div class="scroll-cue">
-  <a href="#kommuner" aria-label="Scrolla till nästa sektion">
+  <a href="#tjanster" aria-label="Scrolla till nästa sektion">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
   </a>
 </div>
 
-<!-- KOMMUNER — CvMatchen som flaggskepp -->
-<section class="content segment" id="kommuner">
+<!-- TJÄNSTER -->
+<section class="content segment" id="tjanster">
   <div class="container">
     <div class="segment-header reveal">
       <div>
-        <span class="segment-tag">Kommuner &amp; offentlig sektor</span>
-        <h2>Vårt flaggskepp för <span class="accent">aktivitetskravet</span>.</h2>
+        <span class="segment-tag">Tjänster</span>
+        <h2>Hemsidor, webshoppar och <span class="accent">CRM</span> — byggt för er.</h2>
       </div>
       <div class="right-col">
-        Sedan 1 juli 2026 ska varje kommun erbjuda försörjningsstödstagare meningsfulla aktiviteter — på heltid. Utan rätt verktyg är det en lavin av möten, dokumentation och uppföljning. <strong>CvMatchen löser det.</strong>
+        Jag bygger det era kunder möter och det ni själva jobbar i — åt företag och kreatörer. Vi börjar med er idé eller flaskhals, inte med tekniken. Sen bygger vi något som gör jobbet <strong>enklare, snabbare eller bättre</strong>. Helst alla tre.
       </div>
     </div>
 
-    <!-- FLAGSHIP: CVMATCHEN — kompakt -->
-    <div class="cvm-flagship">
-      <div class="cvm-flag-grid">
-
-        <!-- Vänster: pitch -->
-        <div>
-          <span class="cvm-flag-tag">Live nu · Anpassas per kommun</span>
-          <h3 class="cvm-flag-headline">
-            <span class="brand">CvMatchen</span> — AI som <span class="accent">faktiskt får folk i jobb</span>.
-          </h3>
-          <p class="cvm-flag-lede">
-            Byggd av en utbildad studie- och yrkesvägledare med <strong>3 års erfarenhet av kommunal arbetsmarknadshandläggning</strong>. <strong>Pilot innan helhet</strong> — vi börjar smått och bevisar nyttan innan vi skalar.
-          </p>
-
-          <div class="cvm-flag-actions">
-            <a href="https://cvmatchen.com" target="_blank" rel="noopener" class="btn btn-primary">
-              <span>Prova live</span>
-              <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#kontakt" class="btn btn-secondary">
-              <span>Boka demo</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Höger: två kärnfeatures -->
-        <div class="cvm-feature-cards">
-          <div class="cvm-fc">
-            <div class="cvm-fc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/>
-                <polyline points="12 6 12 12 16 14"/>
-              </svg>
-            </div>
-            <h5>Aktivitetsmätning</h5>
-            <p>Tid, sökta jobb, övningar — auto-loggat per deltagare. Underlaget skriver sig självt.</p>
-          </div>
-
-          <div class="cvm-fc">
-            <div class="cvm-fc-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"/>
-                <path d="m7 14 4-4 4 4 5-5"/>
-              </svg>
-            </div>
-            <h5>Handläggarvy</h5>
-            <p>Alla deltagare, framsteg och varningar på en yta. Byggd för era handläggares vardag.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Frågor & svar (carousel) -->
-    <div class="reveal">
-      <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px;">Frågor vi får från kommuner</h3>
-      <p style="color: var(--text-dim); font-size: 0.95rem; margin-bottom: 8px;">Bekanta utmaningar — med konkreta svar.</p>
-    </div>
-
-    <div class="carousel-wrapper reveal" id="kommunerCarousel">
-      <div class="carousel-track-wrap" data-carousel-wrap>
-        <div class="carousel-track" data-carousel-track>
-          <div class="quote-card"><p class="q">Hur möter CvMatchen aktivitetskravet konkret?</p><p class="a"><strong>Heltid jobbsök, dokumenterad.</strong> Övningar, sökhistorik och progression — exakt det lagen kräver.</p></div>
-          <div class="quote-card"><p class="q">Vad händer med GDPR och våra känsliga data?</p><p class="a"><strong>EU-baserad drift och tydlig datahantering.</strong> Grundkrav, inte tillval.</p></div>
-          <div class="quote-card"><p class="q">Vi har för få handläggare för att möta lagkravet.</p><p class="a"><strong>Handläggarvyn gör en handläggare till tre.</strong> Ni ser alla deltagare, alla framsteg, allt på en yta.</p></div>
-          <div class="quote-card"><p class="q">Hur lever vi upp till offentlighetsprincipen?</p><p class="a"><strong>Spårbarhet i varje steg.</strong> Beslut är lika transparenta som idag — bara snabbare framtagna.</p></div>
-          <div class="quote-card"><p class="q">Vi behöver komma igång snabbt.</p><p class="a"><strong>Pilot innan helhet.</strong> Ni testar i liten skala, ser nyttan, skalar sen — utan stress.</p></div>
-          <div class="quote-card"><p class="q">Kan plattformen anpassas till våra lokala arbetsgivare?</p><p class="a"><strong>Ja, det är hela poängen.</strong> Lokala annonser, era insatser, er profil. Vi anpassar.</p></div>
-          <!-- Duplicate -->
-          <div class="quote-card" aria-hidden="true"><p class="q">Hur möter CvMatchen aktivitetskravet konkret?</p><p class="a"><strong>Heltid jobbsök, dokumenterad.</strong> Övningar, sökhistorik och progression — exakt det lagen kräver.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vad händer med GDPR och våra känsliga data?</p><p class="a"><strong>EU-baserad drift och tydlig datahantering.</strong> Grundkrav, inte tillval.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi har för få handläggare för att möta lagkravet.</p><p class="a"><strong>Handläggarvyn gör en handläggare till tre.</strong> Ni ser alla deltagare, alla framsteg, allt på en yta.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Hur lever vi upp till offentlighetsprincipen?</p><p class="a"><strong>Spårbarhet i varje steg.</strong> Beslut är lika transparenta som idag — bara snabbare framtagna.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi behöver komma igång snabbt.</p><p class="a"><strong>Pilot innan helhet.</strong> Ni testar i liten skala, ser nyttan, skalar sen — utan stress.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Kan plattformen anpassas till våra lokala arbetsgivare?</p><p class="a"><strong>Ja, det är hela poängen.</strong> Lokala annonser, era insatser, er profil. Vi anpassar.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="segment-cta reveal">
-      <a href="#kontakt" class="btn btn-primary">
-        <span>Boka demo för kommunen</span>
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </a>
-      <a href="https://cvmatchen.com" target="_blank" rel="noopener" class="btn btn-secondary">
-        <span>Prova CvMatchen.com</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- Scroll cue -->
-<div class="scroll-cue">
-  <a href="#foretag" aria-label="Scrolla till nästa sektion">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-  </a>
-</div>
-
-<!-- FÖRETAG -->
-<section class="content segment" id="foretag">
-  <div class="container">
-    <div class="segment-header reveal">
-      <div>
-        <span class="segment-tag">Företag &amp; näringsliv</span>
-        <h2>Webshoppar, hemsidor och <span class="accent">AI-projekt</span> för er verksamhet.</h2>
-      </div>
-      <div class="right-col">
-        Vid sidan av CvMatchen bygger jag digitala lösningar åt företag och kreatörer. Vi börjar med er flaskhals — inte med tekniken. Sen bygger vi något som gör jobbet <strong>billigare, snabbare eller bättre</strong>. Helst alla tre.
-      </div>
-    </div>
-
-    <div class="usecases reveal">
+    <div class="usecases usecases-2 reveal">
       <div class="usecase">
-        <div class="usecase-num">01 / Webshoppar</div>
-        <h4>E-handel med AI i kärnan</h4>
-        <p>Butik med Klarna, Stripe och Apple Pay. Produkttexter och administration som sköter sig själv — byggd för att sälja, inte bara finnas.</p>
-        <div class="usecase-savings">Mer försäljning · Mindre butiksadmin</div>
-      </div>
-      <div class="usecase">
-        <div class="usecase-num">02 / Hemsidor</div>
+        <div class="usecase-num">01 / Hemsidor</div>
         <h4>Snabba sidor som säger rätt saker</h4>
-        <p>Sökmotorvänliga, blixtsnabba och lätta att underhålla. Inklusive domänflytt och drift — ni behöver aldrig röra en rad kod.</p>
+        <p>Sökmotorvänliga, blixtsnabba och lätta att uppdatera. Domänflytt, mejl och drift ingår — ni behöver aldrig röra en rad kod.</p>
         <div class="usecase-savings">Syns på Google · Laddar direkt</div>
       </div>
       <div class="usecase">
-        <div class="usecase-num">03 / AI-projekt &amp; interna system</div>
-        <h4>AI där det faktiskt gör skillnad</h4>
-        <p>Mejlflöden, prioritering, skräddarsydda verktyg — AI in i systemen ni redan har, byggt efter era flöden.</p>
-        <div class="usecase-savings">Frigör timmar varje vecka · Ni äger koden</div>
+        <div class="usecase-num">02 / Webshoppar</div>
+        <h4>Butik som säljer — inte bara finns</h4>
+        <p>Klarna, Stripe och Apple Pay från dag ett. Produkttexter med AI-stöd, lager och ordrar som sköter sig själva.</p>
+        <div class="usecase-savings">Mer försäljning · Mindre butiksadmin</div>
+      </div>
+      <div class="usecase">
+        <div class="usecase-num">03 / CRM &amp; interna system</div>
+        <h4>Kundkoll på ett ställe</h4>
+        <p>Kunder, offerter, uppföljning och ärenden samlade — byggt efter hur ni faktiskt jobbar, inte tvärtom. Ingen licens per användare.</p>
+        <div class="usecase-savings">Inga tappade leads · Ni äger systemet</div>
+      </div>
+      <div class="usecase">
+        <div class="usecase-num">04 / AI-automatisering</div>
+        <h4>Tråkjobbet gör sig självt</h4>
+        <p>Mejlsortering, offertutkast, sammanställningar och kundsvar — AI inbyggt i hemsidan, butiken eller CRM:et ni redan har.</p>
+        <div class="usecase-savings">Frigör timmar varje vecka</div>
       </div>
     </div>
 
@@ -2950,18 +2846,18 @@
     <div class="carousel-wrapper reveal" id="foretagCarousel">
       <div class="carousel-track-wrap" data-carousel-wrap>
         <div class="carousel-track" data-carousel-track>
-          <div class="quote-card"><p class="q">Alla pratar om AI, men vi vet inte var vi ska börja.</p><p class="a"><strong>Vi börjar där pengarna finns.</strong> En kort analys visar var AI sparar mest.</p></div>
-          <div class="quote-card"><p class="q">Vi har testat pilotprojekt som aldrig kommit i drift.</p><p class="a"><strong>Vi bygger för måndag morgon.</strong> Lösningen ska tåla verkligheten.</p></div>
+          <div class="quote-card"><p class="q">Våra kunder ligger i Excel, mejl och post-it-lappar.</p><p class="a"><strong>Ett CRM byggt för er.</strong> Alla kunder, offerter och uppföljningar på ett ställe.</p></div>
+          <div class="quote-card"><p class="q">Vi syns inte på Google.</p><p class="a"><strong>Snabb, sökmotorvänlig sajt.</strong> Rätt texter, rätt struktur, rätt teknik.</p></div>
           <div class="quote-card"><p class="q">Hur vet vi att det faktiskt sparar tid eller pengar?</p><p class="a"><strong>Vi mäter innan, under och efter.</strong> Kronor, timmar, ärenden.</p></div>
           <div class="quote-card"><p class="q">Vår hemsida är gammal och webshopen finns bara i tankarna.</p><p class="a"><strong>Modern sajt och butik med Klarna, Stripe och Apple Pay — nyckelfärdigt.</strong></p></div>
-          <div class="quote-card"><p class="q">Vi har inte resurser för en intern AI-avdelning.</p><p class="a"><strong>Det behövs inte.</strong> Vi bygger och lämnar över.</p></div>
+          <div class="quote-card"><p class="q">Vi har inte resurser för en egen IT-avdelning.</p><p class="a"><strong>Det behövs inte.</strong> Vi bygger, driftar och lämnar över.</p></div>
           <div class="quote-card"><p class="q">Medarbetarna är oroliga att de ska bli ersatta.</p><p class="a"><strong>AI tar bort tråkjobbet, inte människorna.</strong></p></div>
           <!-- Duplicate -->
-          <div class="quote-card" aria-hidden="true"><p class="q">Alla pratar om AI, men vi vet inte var vi ska börja.</p><p class="a"><strong>Vi börjar där pengarna finns.</strong> En kort analys visar var AI sparar mest.</p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi har testat pilotprojekt som aldrig kommit i drift.</p><p class="a"><strong>Vi bygger för måndag morgon.</strong> Lösningen ska tåla verkligheten.</p></div>
+          <div class="quote-card" aria-hidden="true"><p class="q">Våra kunder ligger i Excel, mejl och post-it-lappar.</p><p class="a"><strong>Ett CRM byggt för er.</strong> Alla kunder, offerter och uppföljningar på ett ställe.</p></div>
+          <div class="quote-card" aria-hidden="true"><p class="q">Vi syns inte på Google.</p><p class="a"><strong>Snabb, sökmotorvänlig sajt.</strong> Rätt texter, rätt struktur, rätt teknik.</p></div>
           <div class="quote-card" aria-hidden="true"><p class="q">Hur vet vi att det faktiskt sparar tid eller pengar?</p><p class="a"><strong>Vi mäter innan, under och efter.</strong> Kronor, timmar, ärenden.</p></div>
           <div class="quote-card" aria-hidden="true"><p class="q">Vår hemsida är gammal och webshopen finns bara i tankarna.</p><p class="a"><strong>Modern sajt och butik med Klarna, Stripe och Apple Pay — nyckelfärdigt.</strong></p></div>
-          <div class="quote-card" aria-hidden="true"><p class="q">Vi har inte resurser för en intern AI-avdelning.</p><p class="a"><strong>Det behövs inte.</strong> Vi bygger och lämnar över.</p></div>
+          <div class="quote-card" aria-hidden="true"><p class="q">Vi har inte resurser för en egen IT-avdelning.</p><p class="a"><strong>Det behövs inte.</strong> Vi bygger, driftar och lämnar över.</p></div>
           <div class="quote-card" aria-hidden="true"><p class="q">Medarbetarna är oroliga att de ska bli ersatta.</p><p class="a"><strong>AI tar bort tråkjobbet, inte människorna.</strong></p></div>
         </div>
       </div>
@@ -2969,7 +2865,7 @@
 
     <div class="segment-cta reveal">
       <a href="#kontakt" class="btn btn-primary">
-        <span>Boka analys för företag</span>
+        <span>Boka ett samtal</span>
         <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -2988,9 +2884,9 @@
   <div class="container">
     <div class="reveal">
       <span class="section-label">Case</span>
-      <h2>Två leveranser. <span class="accent">Live nu.</span></h2>
+      <h2>Senaste leveransen. <span class="accent">Live nu.</span></h2>
       <p class="section-intro">
-        Ingen storytelling. Riktiga leveranser du kan klicka på — och nästa är redan på väg.
+        Ingen storytelling. En riktig leverans du kan klicka på — och nästa är redan på väg.
       </p>
     </div>
 
@@ -3012,25 +2908,6 @@
         </div>
         <div class="case-result">
           <span class="accent">Live nu.</span> Se själv: <a href="https://constcollection.com" target="_blank" rel="noopener" style="color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px;">constcollection.com</a>
-        </div>
-      </div>
-
-      <!-- Case 2: CvMatchen som flaggskepp -->
-      <div class="case-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(212, 164, 55, 0.06) 0%, rgba(0, 0, 0, 0.3) 100%); border-color: rgba(245, 200, 66, 0.18);">
-        <span class="case-tag">Case 02 · CvMatchen — egen produkt</span>
-        <h3 class="case-headline">Från idé till <span class="accent">publik AI-tjänst</span> — driven solo.</h3>
-        <div class="case-body">
-          <div class="case-row">
-            <span class="case-row-label">Bakgrund</span>
-            <span class="case-row-text">CvMatchen är min egen AI-tjänst för jobbmatchning — byggd, lanserad och driven helt själv. Anpassad för aktivitetskravet som gäller sedan 1 juli 2026.</span>
-          </div>
-          <div class="case-row">
-            <span class="case-row-label">Vad det bevisar</span>
-            <span class="case-row-text">Att en solo-grundare kan bygga, lansera och drifta en publik AI-tjänst som faktiskt fungerar. Det jag gör för andra — har jag gjort för mig själv först.</span>
-          </div>
-        </div>
-        <div class="case-result">
-          <span class="accent">Live nu.</span> Anpassas per kommun. <a href="https://cvmatchen.com" target="_blank" rel="noopener" style="color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px;">cvmatchen.com</a>
         </div>
       </div>
 
@@ -3090,7 +2967,7 @@
           </summary>
           <div class="faq-a">
             <p>Det beror på uppdragets karaktär — och det bestämmer ni.</p>
-            <p><strong>Standard:</strong> Vi väljer modeller och leverantörer som möjliggör drift inom <strong>EU/EES</strong>. För kommun- och offentliga uppdrag är det en hygienfaktor.</p>
+            <p><strong>Standard:</strong> Vi väljer modeller och leverantörer som möjliggör drift inom <strong>EU/EES</strong>. Det är en hygienfaktor, inte ett tillval.</p>
             <p><strong>Personuppgiftsbiträdesavtal (PUB-avtal)</strong> tecknas alltid när uppdraget innefattar personuppgifter, oavsett bransch.</p>
             <p>Vi använder inte modeller som tränar vidare på er data. Det är skrivet i avtalet — inte bara lovat muntligt.</p>
           </div>
@@ -3133,7 +3010,7 @@
             </svg>
           </summary>
           <div class="faq-a">
-            <p>Nej. Lösningarna byggs för <strong>era egna användare</strong> — handläggare, säljare, administratörer, vad det nu än är. Inte för utvecklare.</p>
+            <p>Nej. Lösningarna byggs för <strong>era egna användare</strong> — säljare, butikspersonal, administratörer, vad det nu än är. Inte för utvecklare.</p>
             <p><strong>Onboarding ingår.</strong> Jag kommer på plats och går igenom systemet med personalen. Inga PDF-manualer som ingen läser.</p>
             <p><strong>Support inom månadsavgiften.</strong> När frågor dyker upp efter lansering är det bara att höra av sig — ingen timdebitering för småsaker.</p>
           </div>
@@ -3167,28 +3044,25 @@
         </div>
         <div class="portrait-meta">
           <div class="name">Oliver Mac Pettersson</div>
-          <div class="role">Grundare &amp; AI-arkitekt</div>
+          <div class="role">Grundare &amp; utvecklare</div>
         </div>
       </div>
 
       <!-- Höger: hook + text + principer -->
       <div class="about-body reveal">
         <p class="about-lede">
-          <span class="accent">PathfinderAI</span> är där erfarenhet från golvet möter tekniken — riktiga lösningar för bolag och kommuner som inte har råd med ett utvecklarteam.
+          <span class="accent">PathfinderAI</span> är där erfarenhet från golvet möter tekniken — riktiga lösningar för företag och kreatörer som inte har råd med ett eget utvecklarteam.
         </p>
 
         <div class="about-prose">
           <p>
-            Jag är utbildad <strong>studie- och yrkesvägledare</strong> med <strong>3 års erfarenhet av kommunal arbetsmarknadshandläggning</strong>. Vid sidan av det operativa arbetet har jag drivit digital utveckling och implementering — där jag samlat verktygen vi haft och byggt på med det som behövts ovanpå.
+            Jag heter Oliver och har alltid drivits av det digitala. Bakgrunden är verksamhetsnära — jag har jobbat med människor och processer i vardagen, och drivit digital utveckling och implementering där verktygen inte räckte till.
           </p>
           <p>
-            Verktygen som finns inom arbetsmarknadshandläggning är många — och spridda. <strong>CvMatchen är min syn på vad ett samlat verktyg för målgruppen kan vara</strong>: byggt av någon som sitter i arbetet, för dem som sitter i arbetet. Men det digitala intresset slutar inte där.
+            I dag bygger jag <strong>hemsidor, webshoppar och CRM-system</strong> åt företag och kreatörer — hela vägen från idé till design, betalningar, domänflytt och drift. Senast lanserade: konstnärsportföljen och webshopen <a href="https://constcollection.com" target="_blank" rel="noopener" style="color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px;">constcollection.com</a>.
           </p>
           <p>
-            Vid sidan av CvMatchen bygger jag <strong>hemsidor, webshoppar och interna system</strong> åt företag och kreatörer — hela vägen från idé till design, domänflytt och drift. Senast lanserade: konstnärsportföljen <a href="https://constcollection.com" target="_blank" rel="noopener" style="color: var(--gold-bright); text-decoration: underline; text-underline-offset: 3px;">constcollection.com</a>. Jag bygger inte för målgrupper jag läst om — <strong>jag bygger för dem jag jobbat med och tillsammans med</strong>.
-          </p>
-          <p>
-            Som solo-grundare betyder det en sak för dig: <strong>du pratar med personen som både byggt lösningen och använt verktygen i verkligheten</strong>. Inga säljare, inga junior-konsulter — bara raka besked om vad som lönar sig.
+            Som solo-grundare betyder det en sak för dig: <strong>du pratar med personen som faktiskt bygger lösningen</strong>. Inga säljare, inga junior-konsulter — bara raka besked om vad som lönar sig.
           </p>
         </div>
 
@@ -3231,16 +3105,16 @@
   <div class="container">
     <div class="reveal" style="text-align: center; margin-bottom: 12px;">
       <span class="section-label">Nästa steg</span>
-      <h2 style="margin-left: auto; margin-right: auto;">Boka en <span class="accent">verksamhetsanalys</span>.</h2>
+      <h2 style="margin-left: auto; margin-right: auto;">Berätta om er <span class="accent">idé</span>.</h2>
       <p class="section-intro" style="margin-left: auto; margin-right: auto;">
-        Förutsättningslöst möte. Vi lyssnar, ställer skarpa frågor, och säger ärligt var AI lönar sig — och var det inte gör det.
+        30 minuter, förutsättningslöst och kostnadsfritt. Vi lyssnar, ställer skarpa frågor och säger ärligt vad som lönar sig — och vad som inte gör det.
       </p>
     </div>
 
     <div class="contact-grid reveal">
       <!-- Vänsterspalt: kontaktuppgifter -->
       <div class="contact-info">
-        <a href="mailto:oliver@pathfinderai.se?subject=Boka%20verksamhetsanalys" class="contact-card">
+        <a href="mailto:oliver@pathfinderai.se?subject=F%C3%B6rfr%C3%A5gan%20via%20pathfinderai.se" class="contact-card">
           <div class="contact-card-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -3325,11 +3199,13 @@
           </div>
 
           <div class="form-field">
-            <label for="cf-type">Typ av verksamhet</label>
+            <label for="cf-type">Vad gäller det?</label>
             <select id="cf-type" name="type">
               <option value="">Välj…</option>
-              <option value="foretag">Företag / näringsliv</option>
-              <option value="kommun">Kommun / offentlig sektor</option>
+              <option value="hemsida">Hemsida</option>
+              <option value="webshop">Webshop</option>
+              <option value="crm">CRM / internt system</option>
+              <option value="ai">AI-automatisering</option>
               <option value="annat">Annat</option>
             </select>
           </div>
@@ -3376,8 +3252,7 @@
       <span class="logo-name"><span class="pf">Pathfinder</span><span class="ai">AI</span></span>
     </a>
     <ul class="footer-links">
-      <li><a href="#kommuner">Kommuner</a></li>
-      <li><a href="#foretag">Företag</a></li>
+      <li><a href="#tjanster">Tjänster</a></li>
       <li><a href="#cases">Case</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#om">Om oss</a></li>
