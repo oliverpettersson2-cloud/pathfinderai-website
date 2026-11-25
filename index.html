@@ -191,19 +191,26 @@
 
   /* Förhandsvisning: Const Collection */
   .pv-cc {
-    aspect-ratio: 16 / 10; position: relative; overflow: hidden;
-    background:
-      radial-gradient(ellipse 55% 70% at 78% 60%, rgba(196, 120, 64, 0.55), transparent 70%),
-      radial-gradient(ellipse 35% 45% at 88% 25%, rgba(227, 179, 65, 0.35), transparent 70%),
-      linear-gradient(90deg, #17120f 0%, #1f1712 55%, #3b2417 100%);
-    color: #f6efe5; padding: 9% 8%;
-    display: flex; flex-direction: column; justify-content: center;
+    aspect-ratio: 16 / 10; overflow: hidden; background: #f6f1e8; color: #1d1a16;
+    display: flex; flex-direction: column; font-family: 'Cormorant Garamond', Georgia, serif;
   }
-  .pv-cc .k { font-size: clamp(7px, 0.75vw, 9.5px); letter-spacing: 0.3em; text-transform: uppercase; color: #d9b061; font-weight: 600; }
-  .pv-cc .t { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(22px, 3.3vw, 44px); line-height: 1.04; margin-top: 10px; font-weight: 500; }
-  .pv-cc .t em { font-style: italic; }
-  .pv-cc .d { font-size: clamp(8px, 0.85vw, 11px); color: rgba(246,239,229,0.75); max-width: 60%; margin-top: 10px; line-height: 1.5; }
-  .pv-cc .b { margin-top: 16px; display: inline-block; align-self: flex-start; background: #b4532a; color: #fff; font-size: clamp(8px, 0.8vw, 10.5px); font-weight: 600; padding: 7px 16px; border-radius: 999px; }
+  .pv-cc .hd {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    padding: 3.2% 5%; border-bottom: 1px solid rgba(29,26,22,0.1);
+  }
+  .pv-cc .brand { font-size: clamp(9px, 1.05vw, 14px); font-weight: 500; letter-spacing: 0.03em; white-space: nowrap; }
+  .pv-cc .brand i { font-style: normal; color: #b4532a; }
+  .pv-cc .menu { display: flex; gap: 4px; font-family: var(--font); font-size: clamp(6px, 0.62vw, 8.5px); }
+  .pv-cc .menu span { padding: 3px 7px; border-radius: 4px; border: 1px solid rgba(29,26,22,0.15); }
+  .pv-cc .menu span.on { background: #1d1a16; color: #f6f1e8; border-color: #1d1a16; }
+  .pv-cc .menu span.cart { border-color: #b4532a; color: #b4532a; }
+  .pv-cc .bd { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 8%; }
+  .pv-cc .k { font-family: var(--font); font-size: clamp(6px, 0.65vw, 8.5px); letter-spacing: 0.28em; text-transform: uppercase; color: #b4532a; font-weight: 600; }
+  .pv-cc .t { font-size: clamp(20px, 2.9vw, 38px); line-height: 1.05; margin-top: 8px; font-weight: 500; }
+  .pv-cc .d { font-family: var(--font); font-size: clamp(7.5px, 0.8vw, 10.5px); color: rgba(29,26,22,0.65); margin-top: 8px; line-height: 1.5; }
+  .pv-cc .pay { display: flex; gap: 5px; margin-top: 12px; font-family: var(--font); font-size: clamp(6px, 0.62vw, 8.5px); font-weight: 600; }
+  .pv-cc .pay span { padding: 3px 8px; border-radius: 4px; background: #fff; border: 1px solid rgba(29,26,22,0.12); }
+  .pv-cc .b { margin-top: 14px; background: #1d1a16; color: #f6f1e8; font-family: var(--font); font-size: clamp(7.5px, 0.78vw, 10.5px); font-weight: 600; padding: 7px 16px; border-radius: 999px; }
 
   /* Förhandsvisning: Scribooks */
   .pv-sb {
@@ -440,21 +447,28 @@
           <a class="browser" href="https://constcollection.com" target="_blank" rel="noopener" aria-label="Besök constcollection.com">
             <div class="browser-bar"><i></i><i></i><i></i><span class="url">constcollection.com</span></div>
             <div class="pv-cc" aria-hidden="true">
-              <span class="k">Cecilia Kristoffersson · Södra Sverige</span>
-              <span class="t">I am a <em>mother artist</em>.</span>
-              <span class="d">Storskaliga illuminerade akrylmålningar om feminin kraft och förfädernas minne.</span>
-              <span class="b">Se verken</span>
+              <div class="hd">
+                <span class="brand">Const Collection Art by Cecilia K<i>.</i></span>
+                <span class="menu"><span class="on">Hem</span><span>Utställningar</span><span>Shop</span><span class="cart">Kundvagn</span></span>
+              </div>
+              <div class="bd">
+                <span class="k">Shopen</span>
+                <span class="t">Utvalda verk</span>
+                <span class="d">Posters och plexiglastryck i presentlåda — direkt från konstnären.</span>
+                <span class="pay"><span>Klarna</span><span>Stripe</span><span>Apple Pay</span></span>
+                <span class="b">Till shopen →</span>
+              </div>
             </div>
           </a>
         </div>
         <div class="project-body">
           <span class="project-kicker"><span class="badge-live">Live</span> · Hemsida + webshop</span>
-          <h3>Const Collection — <em>från hemsida till webshop.</em></h3>
-          <p>Konstnären Cecilia K. hade en sajt som inte gjorde verken rättvisa — och inget sätt att sälja dem online. Nu har hon båda.</p>
+          <h3>Const Collection — <em>konst som går att köpa.</em></h3>
+          <p>Konstnären Cecilia K. hade redan byggt en fin grund själv i Canva. Tillsammans tog vi nästa steg: en egen sajt med webshop, så att verken kan hitta nya hem — dygnet runt.</p>
           <ul class="did">
-            <li>Ny sajt från grunden med galleri, utställningar och intervju</li>
+            <li>Sajt med galleri, utställningar och intervju</li>
             <li>Webshop för posters och plexiglastryck — Klarna, Stripe och Apple Pay</li>
-            <li>Svenska och engelska, domänflytt och drift som bara fungerar</li>
+            <li>Svenska och engelska, egen domän och drift som sköter sig</li>
           </ul>
           <div class="tags"><span>Webshop</span><span>Betalningar</span><span>Tvåspråkig</span><span>Domänflytt</span></div>
           <a href="https://constcollection.com" target="_blank" rel="noopener" class="btn btn-ghost">
