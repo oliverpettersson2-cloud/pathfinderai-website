@@ -503,7 +503,7 @@
   h1 .line-2 { animation-delay: 0.85s; }
   h1 .line-3 { animation-delay: 1.3s; }
   h1 .line-4 {
-    animation-delay: 1.85s;
+    animation-delay: 1.3s;
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
@@ -526,10 +526,50 @@
     background: var(--gradient-accent);
     transform: scaleX(0);
     transform-origin: left;
-    animation: underline-grow 0.7s var(--ease-out) 2.5s forwards;
+    animation: underline-grow 0.7s var(--ease-out) 2.0s forwards;
     opacity: 0.5;
     border-radius: 2px;
     filter: blur(0.5px);
+  }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+
+  /* Skiftande ord i heron */
+  h1 .rotator {
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+    overflow: hidden;
+    padding-bottom: 0.08em;
+    margin-bottom: -0.08em;
+    transition: width 0.55s var(--ease-out);
+  }
+
+  h1 .rotator-word {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: 600;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: transform 0.55s var(--ease-out), opacity 0.4s ease, filter 0.4s ease;
+  }
+
+  h1 .rotator-word.is-out {
+    transform: translateY(-75%);
+    opacity: 0;
+    filter: blur(6px);
+  }
+
+  h1 .rotator-word.is-in {
+    transform: translateY(75%);
+    opacity: 0;
+    filter: blur(6px);
+    transition: none;
   }
 
   h1 .punct {
@@ -2768,10 +2808,10 @@
 <section class="hero" id="hem">
   <div class="container">
     <h1>
-      <span class="line line-1"><span class="brand-mark"><span class="pf">Pathfinder</span><span class="ai">AI</span></span> bygger hemsidor<span class="punct">.</span></span>
-      <span class="line line-2">Webshoppar &amp; AI<span class="punct">.</span></span>
-      <span class="line line-3">Förverkligar idéer<span class="punct">.</span></span>
-      <span class="line line-4">På riktigt<span class="punct">.</span></span>
+      <span class="sr-only">PathfinderAI bygger hemsidor, webshoppar och AI som sparar tid. På riktigt.</span>
+      <span class="line line-1" aria-hidden="true"><span class="brand-mark"><span class="pf">Pathfinder</span><span class="ai">AI</span></span> bygger</span>
+      <span class="line line-2" aria-hidden="true"><span class="rotator" id="heroRotator"><span class="rotator-word">hemsidor</span></span><span class="punct">.</span></span>
+      <span class="line line-4" aria-hidden="true">På riktigt<span class="punct">.</span></span>
     </h1>
 
     <p class="hero-sub">
@@ -3282,6 +3322,31 @@
 </footer>
 
 <script>
+  // Skiftande ord i heron
+  (function () {
+    const rot = document.getElementById('heroRotator');
+    if (!rot) return;
+    const word = rot.querySelector('.rotator-word');
+    const words = ['hemsidor', 'webshoppar', 'AI som sparar tid', 'er nästa idé'];
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let i = 0;
+    const fit = () => { rot.style.width = word.offsetWidth + 'px'; };
+    fit();
+    window.addEventListener('resize', () => { rot.style.transition = 'none'; fit(); requestAnimationFrame(() => { rot.style.transition = ''; }); });
+    setTimeout(() => setInterval(() => {
+      word.classList.add('is-out');
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        word.textContent = words[i];
+        word.classList.remove('is-out');
+        word.classList.add('is-in');
+        fit();
+        void word.offsetWidth;
+        word.classList.remove('is-in');
+      }, 450);
+    }, 2600), 1800);
+  })();
+
   // Nav scroll state
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
