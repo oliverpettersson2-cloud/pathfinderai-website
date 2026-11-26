@@ -189,28 +189,8 @@
   }
   .browser-bar .url::before { content: ''; width: 8px; height: 8px; border-radius: 2px; border: 1.5px solid #6c6b66; }
 
-  /* Förhandsvisning: Const Collection */
-  .pv-cc {
-    aspect-ratio: 16 / 10; overflow: hidden; background: #f6f1e8; color: #1d1a16;
-    display: flex; flex-direction: column; font-family: 'Cormorant Garamond', Georgia, serif;
-  }
-  .pv-cc .hd {
-    display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    padding: 3.2% 5%; border-bottom: 1px solid rgba(29,26,22,0.1);
-  }
-  .pv-cc .brand { font-size: clamp(9px, 1.05vw, 14px); font-weight: 500; letter-spacing: 0.03em; white-space: nowrap; }
-  .pv-cc .brand i { font-style: normal; color: #b4532a; }
-  .pv-cc .menu { display: flex; gap: 4px; font-family: var(--font); font-size: clamp(6px, 0.62vw, 8.5px); }
-  .pv-cc .menu span { padding: 3px 7px; border-radius: 4px; border: 1px solid rgba(29,26,22,0.15); }
-  .pv-cc .menu span.on { background: #1d1a16; color: #f6f1e8; border-color: #1d1a16; }
-  .pv-cc .menu span.cart { border-color: #b4532a; color: #b4532a; }
-  .pv-cc .bd { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 8%; }
-  .pv-cc .k { font-family: var(--font); font-size: clamp(6px, 0.65vw, 8.5px); letter-spacing: 0.28em; text-transform: uppercase; color: #b4532a; font-weight: 600; }
-  .pv-cc .t { font-size: clamp(20px, 2.9vw, 38px); line-height: 1.05; margin-top: 8px; font-weight: 500; }
-  .pv-cc .d { font-family: var(--font); font-size: clamp(7.5px, 0.8vw, 10.5px); color: rgba(29,26,22,0.65); margin-top: 8px; line-height: 1.5; }
-  .pv-cc .pay { display: flex; gap: 5px; margin-top: 12px; font-family: var(--font); font-size: clamp(6px, 0.62vw, 8.5px); font-weight: 600; }
-  .pv-cc .pay span { padding: 3px 8px; border-radius: 4px; background: #fff; border: 1px solid rgba(29,26,22,0.12); }
-  .pv-cc .b { margin-top: 14px; background: #1d1a16; color: #f6f1e8; font-family: var(--font); font-size: clamp(7.5px, 0.78vw, 10.5px); font-weight: 600; padding: 7px 16px; border-radius: 999px; }
+  /* Riktig skärmbild i webbläsarramen */
+  .shot-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: left center; background: #121a15; }
 
   /* Förhandsvisning: Scribooks */
   .pv-sb {
@@ -446,19 +426,7 @@
         <div class="shot-wrap">
           <a class="browser" href="https://constcollection.com" target="_blank" rel="noopener" aria-label="Besök constcollection.com">
             <div class="browser-bar"><i></i><i></i><i></i><span class="url">constcollection.com</span></div>
-            <div class="pv-cc" aria-hidden="true">
-              <div class="hd">
-                <span class="brand">Const Collection Art by Cecilia K<i>.</i></span>
-                <span class="menu"><span class="on">Hem</span><span>Utställningar</span><span>Shop</span><span class="cart">Kundvagn</span></span>
-              </div>
-              <div class="bd">
-                <span class="k">Shopen</span>
-                <span class="t">Utvalda verk</span>
-                <span class="d">Posters och plexiglastryck i presentlåda — direkt från konstnären.</span>
-                <span class="pay"><span>Klarna</span><span>Stripe</span><span>Apple Pay</span></span>
-                <span class="b">Till shopen →</span>
-              </div>
-            </div>
+            <img class="shot-img" src="assets/constcollection-hero.webp" alt="Startsidan på constcollection.com: I am a mother artist." width="1050" height="656" loading="lazy">
           </a>
         </div>
         <div class="project-body">
