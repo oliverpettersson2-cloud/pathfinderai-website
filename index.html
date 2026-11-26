@@ -189,8 +189,18 @@
   }
   .browser-bar .url::before { content: ''; width: 8px; height: 8px; border-radius: 2px; border: 1.5px solid #6c6b66; }
 
-  /* Riktig skärmbild i webbläsarramen */
-  .shot-img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: left center; background: #121a15; }
+  /* Förhandsvisning: Const Collection — hennes riktiga hero (The Three Graces) + hennes rubrik */
+  .cc-hero { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: #0d0f0e; container-type: inline-size; }
+  .cc-hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0.7; }
+  .cc-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13,15,14,0.82) 0%, rgba(13,15,14,0.45) 55%, rgba(13,15,14,0.1) 100%); }
+  .cc-copy { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: center; gap: 3.2cqw; padding: 0 8cqw; color: #f3efe6; }
+  .cc-kicker { font-family: var(--sans, 'Space Grotesk'), sans-serif; font-size: 1.6cqw; letter-spacing: 0.22em; text-transform: uppercase; color: #d4a44a; font-weight: 600; }
+  .cc-title { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; font-size: 8.4cqw; line-height: 1; }
+  .cc-title em { font-style: italic; }
+  .cc-lead { font-size: 2.2cqw; line-height: 1.45; max-width: 62cqw; color: rgba(243,239,230,0.86); }
+  .cc-ctas { display: flex; align-items: center; gap: 4cqw; margin-top: 1cqw; }
+  .cc-btn { background: #8e1b2e; color: #fff; border-radius: 999px; padding: 1.6cqw 3.6cqw; font-size: 2cqw; font-weight: 600; }
+  .cc-link { font-size: 2cqw; border-bottom: 1px solid rgba(243,239,230,0.5); padding-bottom: 0.3cqw; }
 
   /* Förhandsvisning: Scribooks */
   .pv-sb {
@@ -426,7 +436,15 @@
         <div class="shot-wrap">
           <a class="browser" href="https://constcollection.com" target="_blank" rel="noopener" aria-label="Besök constcollection.com">
             <div class="browser-bar"><i></i><i></i><i></i><span class="url">constcollection.com</span></div>
-            <img class="shot-img" src="assets/constcollection-hero.webp" alt="Startsidan på constcollection.com: I am a mother artist." width="1050" height="656" loading="lazy">
+            <div class="cc-hero">
+              <img src="assets/constcollection-hero.webp" alt="" width="1600" height="900" loading="lazy">
+              <div class="cc-copy">
+                <span class="cc-kicker">Cecilia Kristoffersson · Bulawayo 1971 · Södra Sverige</span>
+                <span class="cc-title">I am a <em>mother artist.</em></span>
+                <span class="cc-lead">Storskaliga illuminerade akrylmålningar om feminin kraft, förfädernas minne och berättelsens återtagande.</span>
+                <span class="cc-ctas"><span class="cc-btn">Se verken</span><span class="cc-link">Utställningar</span></span>
+              </div>
+            </div>
           </a>
         </div>
         <div class="project-body">
