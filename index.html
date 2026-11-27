@@ -268,12 +268,16 @@
   @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
 
   /* ---------- Process ---------- */
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px; }
-  .step { padding: 30px 28px 0 0; border-top: 1px solid var(--line-strong); }
-  .step-num { font-family: var(--serif); font-style: italic; font-size: 2.6rem; color: var(--gold); line-height: 1; margin-bottom: 18px; display: block; }
-  .step h3 { font-size: 1.25rem; font-weight: 500; letter-spacing: -0.02em; margin-bottom: 8px; }
-  .step p { color: var(--muted); font-size: 0.98rem; }
-  @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } .step { padding: 24px 0 0; } }
+  .process { margin-top: 28px; padding: 40px 40px 36px; border-radius: 20px; border: 1px solid var(--line); background: linear-gradient(180deg, rgba(227,179,65,0.05), rgba(255,255,255,0.015)); display: grid; grid-template-columns: 260px 1fr; gap: 40px; align-items: start; }
+  .process-head h3 { font-size: 1.55rem; font-weight: 500; letter-spacing: -0.02em; line-height: 1.2; margin-top: 12px; }
+  .process-head h3 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--gold); white-space: nowrap; }
+  .steps { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .step { position: relative; padding-top: 20px; border-top: 1px solid var(--gold-line); }
+  .step-num { font-family: var(--serif); font-style: italic; font-size: 2.1rem; color: var(--gold); line-height: 1; margin-bottom: 12px; display: block; }
+  .step h4 { font-size: 1.08rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: 0.94rem; }
+  @media (max-width: 1000px) { .process { grid-template-columns: 1fr; gap: 28px; } }
+  @media (max-width: 700px) { .process { padding: 28px 22px; } .steps { grid-template-columns: 1fr; gap: 22px; } }
 
   /* ---------- Om ---------- */
   .about { display: grid; grid-template-columns: 320px 1fr; gap: 64px; align-items: center; }
@@ -380,7 +384,6 @@
     <ul class="nav-links">
       <li><a href="#projekt">Projekt</a></li>
       <li><a href="#tjanster">Tjänster</a></li>
-      <li><a href="#process">Så funkar det</a></li>
       <li><a href="#om">Om mig</a></li>
       <li><a href="#kontakt" class="nav-cta">Boka samtal</a></li>
     </ul>
@@ -533,32 +536,29 @@
         <div class="fit"><b>Passar dig som</b> gör samma sak om och om igen.</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- PROCESS -->
-<section class="section" id="process">
-  <div class="container">
-    <div class="reveal">
-      <span class="eyebrow">Så funkar det</span>
-      <h2 class="h2">Från idé till lansering <em>i tre steg.</em></h2>
-    </div>
-    <div class="steps">
-      <div class="step reveal">
-        <span class="step-num">01</span>
-        <h3>Gratis samtal</h3>
-        <p>30 minuter. Du berättar om idén, jag ställer frågorna som spelar roll och säger ärligt vad som lönar sig.</p>
+    <div class="process reveal" id="process">
+      <div class="process-head">
+        <span class="eyebrow">Så funkar det</span>
+        <h3>Från idé till lansering <em>i tre steg.</em></h3>
       </div>
-      <div class="step reveal">
-        <span class="step-num">02</span>
-        <h3>Förslag &amp; bygge</h3>
-        <p>Tydlig plan och pris innan vi börjar. Sedan bygger jag — och du ser framstegen hela vägen.</p>
-      </div>
-      <div class="step reveal">
-        <span class="step-num">03</span>
-        <h3>Lansering &amp; drift</h3>
-        <p>Vi går live tillsammans. Domän, drift och uppdateringar sköter jag — och koden är din när allt är betalt.</p>
-      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="step-num">01</span>
+          <h4>Gratis samtal</h4>
+          <p>30 minuter. Du berättar om idén, jag ställer frågorna som spelar roll och säger ärligt vad som lönar sig.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">02</span>
+          <h4>Förslag &amp; bygge</h4>
+          <p>Tydlig plan och pris innan vi börjar. Sedan bygger jag — och du ser framstegen hela vägen.</p>
+        </li>
+        <li class="step">
+          <span class="step-num">03</span>
+          <h4>Lansering &amp; drift</h4>
+          <p>Vi går live tillsammans. Domän, drift och uppdateringar sköter jag — och koden är din när allt är betalt.</p>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
