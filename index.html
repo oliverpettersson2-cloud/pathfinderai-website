@@ -285,7 +285,8 @@
   .about-text p { color: var(--muted); font-size: 1.08rem; margin-top: 18px; }
   .about-text p strong { color: var(--text); font-weight: 500; }
   .facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
-  .facts span { font-size: 0.9rem; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); color: #d8d6cf; }
+  .facts span { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; padding: 8px 14px; border-radius: 999px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); color: #d8d6cf; }
+  .facts svg { width: 15px; height: 15px; flex: none; fill: none; stroke: var(--gold, #e8b94a); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
   @media (max-width: 900px) { .about { grid-template-columns: 1fr; gap: 40px; } .portrait { max-width: 360px; } }
 
   /* ---------- Kontakt ---------- */
@@ -576,10 +577,10 @@
         <p>Jag heter Oliver och har alltid drivits av det digitala. Jag bygger <strong>hemsidor, webshoppar och AI-flöden</strong> åt företag och kreatörer — och egna produkter som Scribooks.</p>
         <p>Med mig pratar du direkt med den som bygger. Inga säljare, inga juniorer, inga överraskningar — <strong>bara raka besked och saker som fungerar.</strong></p>
         <div class="facts">
-          <span>📍 Landskrona, Skåne</span>
-          <span>⚡ Svar inom 24 h</span>
-          <span>🔑 Du äger koden</span>
-          <span>🇪🇺 Drift inom EU</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Landskrona, Skåne</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Svar inom 24 h</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 8-5 4 5 4M15 8l5 4-5 4"/></svg>Du äger koden</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>Drift inom EU</span>
         </div>
       </div>
     </div>
