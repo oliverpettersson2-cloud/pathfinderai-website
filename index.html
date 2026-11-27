@@ -327,6 +327,14 @@
   .form-note { font-size: 0.82rem; color: var(--dim); margin-top: 14px; text-align: center; }
   .form-success { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(111,207,143,0.35); background: rgba(111,207,143,0.08); color: var(--green); font-size: 0.93rem; }
   .form-success.visible { display: block; }
+  .form-success b { color: var(--text); font-weight: 600; font-size: 1.25rem; display: block; margin-bottom: 6px; }
+  .contact-form:has(.form-success.visible) { display: flex; align-items: center; justify-content: center; min-height: 420px; }
+  .form-success.visible { text-align: center; padding: 36px 28px; font-size: 1rem; }
+  .form-error { display: none; margin-top: 16px; padding: 14px 16px; border-radius: 12px; border: 1px solid rgba(240,120,110,0.35); background: rgba(240,120,110,0.08); color: #f0a49c; font-size: 0.93rem; }
+  .form-error.visible { display: block; }
+  .form-error a { color: var(--gold); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .btn:disabled { opacity: 0.7; cursor: progress; }
   @media (max-width: 900px) {
     .contact { grid-template-columns: 1fr; }
     .contact-left, .contact-form { padding: 36px 26px; }
@@ -643,15 +651,17 @@
             <label for="cf-message">Berätta om din idé <span class="req">*</span></label>
             <textarea id="cf-message" name="message" required placeholder="Ett par meningar räcker — vad vill du bygga eller lösa?"></textarea>
           </div>
+          <div class="hp" aria-hidden="true"><label>Lämna tomt <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
           <button type="submit" class="btn btn-gold">
             Skicka förfrågan
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </button>
-          <p class="form-note">Svar inom 24 timmar. Uppgifterna används bara för att kontakta dig.</p>
+          <p class="form-note">Svar inom 24 timmar. Uppgifterna används bara för att kontakta dig — <a href="integritet.html">integritetspolicy</a>.</p>
         </form>
-        <div class="form-success" id="formSuccess" role="status">
-          Din e-postklient öppnas nu — skicka mejlet så hör jag av mig inom 24 timmar.
+        <div class="form-success" id="formSuccess" role="status" tabindex="-1">
+          <b>Tack — din förfrågan är skickad!</b>Jag hör av mig inom 24 timmar.
         </div>
+        <div class="form-error" id="formError" role="alert"></div>
       </div>
     </div>
   </div>
@@ -758,24 +768,47 @@
     els.forEach(e => io.observe(e));
   })();
 
-  // Kontaktformulär → mejl
+  // Kontaktformulär → skickas direkt (FormSubmit), med mejl som reserv
   const form = document.getElementById('contactForm');
-  form.addEventListener('submit', (e) => {
+  const btn = form.querySelector('button[type="submit"]');
+  const ok = document.getElementById('formSuccess');
+  const err = document.getElementById('formError');
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const f = new FormData(form);
+    if (f.get('_honey')) return;
     const subject = 'Förfrågan via pathfinderai.se — ' + (f.get('organization') || f.get('name'));
-    const body = [
-      'Namn: ' + f.get('name'),
-      'Företag: ' + (f.get('organization') || '—'),
-      'E-post: ' + f.get('email'),
-      'Telefon: ' + (f.get('phone') || '—'),
-      'Gäller: ' + (f.get('type') || '—'),
-      '',
-      f.get('message')
-    ].join('\n');
-    window.location.href = 'mailto:oliver@pathfinderai.se?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    document.getElementById('formSuccess').classList.add('visible');
+    const data = {
+      Namn: f.get('name'),
+      'Företag': f.get('organization') || '—',
+      'E-post': f.get('email'),
+      Telefon: f.get('phone') || '—',
+      'Gäller': f.get('type') || '—',
+      Meddelande: f.get('message'),
+      _subject: subject,
+      _replyto: f.get('email'),
+      _template: 'table',
+      _captcha: 'false'
+    };
+    btn.disabled = true; const label = btn.firstChild.textContent; btn.firstChild.textContent = 'Skickar… ';
+    err.classList.remove('visible');
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/oliver@pathfinderai.se', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || String(json.success) === 'false') throw new Error(json.message || 'Fel');
+      form.reset(); form.hidden = true; ok.classList.add('visible');
+    } catch (_) {
+      const body = Object.entries(data).filter(([k]) => !k.startsWith('_')).map(([k, v]) => k + ': ' + v).join('\n');
+      err.innerHTML = 'Det gick inte att skicka just nu. <a href="mailto:oliver@pathfinderai.se?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body) + '">Skicka som mejl i stället</a> — allt är redan ifyllt.';
+      err.classList.add('visible');
+    } finally {
+      btn.disabled = false; btn.firstChild.textContent = label;
+    }
   });
 </script>
 
